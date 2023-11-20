@@ -32,7 +32,7 @@
     @include('layouts.components.styles')
 
     <!-- MAIN JS -->
-    <script src="{{ asset('build/assets/main.js') }}"></script>
+    @vite('resources/assets/js/main.js')
 
     @yield('styles')
 
@@ -98,7 +98,7 @@
     @yield('scripts')
 
     <!-- STICKY JS -->
-    <script src="{{ asset('build/assets/sticky.js') }}"></script>
+    @vite('resources/assets/js/sticky.js')
 
     <!-- APP JS -->
     @vite('resources/js/app.js')
