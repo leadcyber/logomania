@@ -22,4 +22,4 @@ use App\Http\Controllers\DashboardController;
 
 // DASHBOARDS //
 Route::get('/', [DashboardController::class, 'index']);
-Route::get('index', [DashboardController::class, 'index']);
+Route::get('dashboard', [DashboardController::class, 'index']);

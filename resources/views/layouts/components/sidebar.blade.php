@@ -34,58 +34,84 @@
                 <!-- End::slide__category -->
 
                 <!-- Start::slide -->
-                <li class="slide has-sub">
+                <li class="slide">
                     <a href="javascript:void(0);;" class="side-menu__item">
                         <i class="bx bx-home side-menu__icon"></i>
-                        <span class="side-menu__label">Dashboards<span
-                                class="badge bg-warning-transparent ms-2">12</span></span>
-                        <i class="fe fe-chevron-right side-menu__angle"></i>
+                        <span class="side-menu__label">Dashboard</span>
                     </a>
-                    <ul class="slide-menu child1">
-                        <li class="slide side-menu__label1">
-                            <a href="javascript:void(0);">Dashboards</a>
-                        </li>
-                        <li class="slide">
-                            <a href="{{ url('index') }}" class="side-menu__item">CRM</a>
-                        </li>
-                        <li class="slide">
-                            <a href="javascript:void(0);" class="side-menu__item">Ecommerce</a>
-                        </li>
-                        <li class="slide">
-                            <a href="javascript:void(0);" class="side-menu__item">Crypto</a>
-                        </li>
-                        <li class="slide">
-                            <a href="javascript:void(0);" class="side-menu__item">Jobs</a>
-                        </li>
-                        <li class="slide">
-                            <a href="javascript:void(0);" class="side-menu__item">NFT</a>
-                        </li>
-                        <li class="slide">
-                            <a href="javascript:void(0);" class="side-menu__item">Sales</a>
-                        </li>
-                        <li class="slide">
-                            <a href="javascript:void(0);" class="side-menu__item">Analytics</a>
-                        </li>
-                        <li class="slide">
-                            <a href="javascript:void(0);" class="side-menu__item">Projects</a>
-                        </li>
-                        <li class="slide">
-                            <a href="javascript:void(0);" class="side-menu__item">HRM</a>
-                        </li>
-                        <li class="slide">
-                            <a href="javascript:void(0);" class="side-menu__item">Stocks</a>
-                        </li>
-                        <li class="slide">
-                            <a href="javascript:void(0);" class="side-menu__item">Courses</a>
-                        </li>
-                        <li class="slide">
-                            <a href="javascript:void(0);" class="side-menu__item">Personal</a>
-                        </li>
-                    </ul>
                 </li>
-                <!-- End::slide -->
+                <li class="slide">
+                    <a href="javascript:void(0);;" class="side-menu__item">
+                        <i class="bx bx-medal side-menu__icon"></i>
+                        <span class="side-menu__label">Logo</span>
+                    </a>
+                </li>
+                <li class="slide">
+                    <a href="javascript:void(0);;" class="side-menu__item">
+                        <i class="bx bx-book side-menu__icon"></i>
+                        <span class="side-menu__label">Transaction</span>
+                    </a>
+                </li>
 
-                <!-- Start::slide -->
+                
+                <!-- Start::slide__category -->
+                <li class="slide__category"><span class="category-name">Admin</span></li>
+                <!-- End::slide__category -->
+                
+                <li class="slide">
+                    <a href="javascript:void(0);;" class="side-menu__item">
+                        <i class="bx bx-edit side-menu__icon"></i>
+                        <span class="side-menu__label">Localization</span>
+                    </a>
+                </li>
+                <li class="slide">
+                    <a href="javascript:void(0);;" class="side-menu__item">
+                        <i class="bx bx-user side-menu__icon"></i>
+                        <span class="side-menu__label">User</span>
+                    </a>
+                </li>
+                <li class="slide">
+                    <a href="javascript:void(0);;" class="side-menu__item">
+                        <i class="bx bx-dollar-circle side-menu__icon"></i>
+                        <span class="side-menu__label">Subscription</span>
+                    </a>
+                </li>
+                <li class="slide">
+                    <a href="javascript:void(0);;" class="side-menu__item">
+                        <i class="bx bx-history side-menu__icon"></i>
+                        <span class="side-menu__label">Log</span>
+                    </a>
+                </li>
+
+                <!-- Start::slide__category -->
+                <li class="slide__category"><span class="category-name">Logo Generation</span></li>
+                <!-- End::slide__category -->
+
+                <li class="slide">
+                    <a href="javascript:void(0);;" class="side-menu__item">
+                        <i class="bx bx-font side-menu__icon"></i>
+                        <span class="side-menu__label">Font</span>
+                    </a>
+                </li>
+                <li class="slide">
+                    <a href="javascript:void(0);;" class="side-menu__item">
+                        <i class="bx bx-buildings side-menu__icon"></i>
+                        <span class="side-menu__label">Family</span>
+                    </a>
+                </li>
+                <li class="slide">
+                    <a href="javascript:void(0);;" class="side-menu__item">
+                        <i class="bx bx-image side-menu__icon"></i>
+                        <span class="side-menu__label">Icon</span>
+                    </a>
+                </li>
+                <li class="slide">
+                    <a href="javascript:void(0);;" class="side-menu__item">
+                        <i class="bx bx-palette side-menu__icon"></i>
+                        <span class="side-menu__label">Palette</span>
+                    </a>
+                </li>
+
                 <li class="slide has-sub">
                     <a href="javascript:void(0);;" class="side-menu__item">
                         <i class="bx bx-layer side-menu__icon"></i>
