@@ -300,8 +300,8 @@
                                 height="32" class="rounded-circle">
                         </div>
                         <div class="d-sm-block d-none">
-                            <p class="fw-semibold mb-0 lh-1">Json Taylor</p>
-                            <span class="op-7 fw-normal d-block fs-11">Web Designer</span>
+                            <p class="fw-semibold mb-0 lh-1">{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</p>
+                            <span class="op-7 fw-normal d-block fs-11">{{ Auth::user()->email }}</span>
                         </div>
                     </div>
                 </a>
