@@ -22,9 +22,11 @@ use App\Http\Controllers\DashboardController;
 
 // Route::get('', [Controller::class, 'index']);
 
-// DASHBOARDS //
+Auth::routes();
+
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/signin', [AuthController::class, 'signin']);
-Route::get('/signup', [AuthController::class, 'signup']);
-Route::get('/reset-password', [AuthController::class, 'reset_password']);
-Route::get('dashboard', [DashboardController::class, 'index']);
+
+// Private routes
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('home');
+});

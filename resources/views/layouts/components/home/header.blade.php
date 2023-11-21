@@ -40,7 +40,7 @@
                         <div class="header-element align-items-center">
                             <!-- Start::header-link|switcher-icon -->
                             <div class="btn-list d-lg-none d-block">
-                                <a href="{{url('/signup')}}" class="btn btn-primary-light">
+                                <a href="{{url('/register')}}" class="btn btn-primary-light">
                                     Sign Up
                                 </a>
                                 <button class="btn btn-icon btn-success switcher-icon" data-bs-toggle="offcanvas" data-bs-target="#switcher-canvas">

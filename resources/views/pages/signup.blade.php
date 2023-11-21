@@ -46,52 +46,82 @@
                             <span>OR</span>
                         </div>
                         <div class="row gy-3">
-                            <div class="col-xl-12 mt-0">
-                                <label for="signup-firstname" class="form-label text-default">First Name</label>
-                                <input type="text" class="form-control form-control-lg" id="signup-firstname"
-                                    placeholder="first name">
-                            </div>
-                            <div class="col-xl-12">
-                                <label for="signup-lastname" class="form-label text-default">Last Name</label>
-                                <input type="text" class="form-control form-control-lg" id="signup-lastname"
-                                    placeholder="last name">
-                            </div>
-                            <div class="col-xl-12">
-                                <label for="signup-password" class="form-label text-default">Password</label>
-                                <div class="input-group">
-                                    <input type="password" class="form-control form-control-lg" id="signup-password"
-                                        placeholder="password">
-                                    <button class="btn btn-light" onclick="createpassword('signup-password',this)"
-                                        type="button" id="button-addon2"><i
-                                            class="ri-eye-off-line align-middle"></i></button>
+                            <form method="POST" action="{{ route('register') }}">
+                                @csrf
+                                <div class="col-xl-6 mt-0">
+                                    <label for="firstname" class="form-label text-default">First Name</label>
+                                    <input type="text" class="form-control form-control-lg" id="firstname"
+                                        name="firstname" placeholder="first name" value="{{ old('firstname') }}">
                                 </div>
-                            </div>
-                            <div class="col-xl-12 mb-3">
-                                <label for="signup-confirmpassword" class="form-label text-default">Confirm
-                                    Password</label>
-                                <div class="input-group">
-                                    <input type="password" class="form-control form-control-lg"
-                                        id="signup-confirmpassword" placeholder="confirm password">
-                                    <button class="btn btn-light"
-                                        onclick="createpassword('signup-confirmpassword',this)" type="button"
-                                        id="button-addon21"><i class="ri-eye-off-line align-middle"></i></button>
+                                <div class="col-xl-6 mt-0">
+                                    <label for="lastname" class="form-label text-default">Last Name</label>
+                                    <input type="text" class="form-control form-control-lg" id="lastname"
+                                        name="lastname" placeholder="last name" value="{{ old('lastname') }}">
                                 </div>
-                                <div class="form-check mt-3">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                    <label class="form-check-label text-muted fw-normal" for="defaultCheck1">
-                                        By creating a account you agree to our <a href="{{ url('terms-conditions') }}"
-                                            class="text-success"><u>Terms & Conditions</u></a> and <a
-                                            class="text-success"><u>Privacy Policy</u></a>
-                                    </label>
+                                <div class="col-xl-12">
+                                    <label for="lastname" class="form-label text-default">Company Name</label>
+                                    <input type="text" class="form-control form-control-lg" id="company"
+                                        name="company" placeholder="company name" value="{{ old('company') }}">
                                 </div>
-                            </div>
-                            <div class="col-xl-12 d-grid mt-2">
-                                <a href="{{ url('/signup') }}" class="btn btn-lg btn-primary">Create Account</a>
-                            </div>
+                                <div class="col-xl-12">
+                                    <label for="email" class="form-label text-default">Email</label>
+                                    <input type="text"
+                                        class="form-control form-control-lg @error('email') is-invalid @enderror"
+                                        id="email" name="email" placeholder="email" value="{{ old('email') }}"
+                                        required autocomplete="email">
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="col-xl-12">
+                                    <label for="password" class="form-label text-default">Password</label>
+                                    <div class="input-group">
+                                        <input type="password"
+                                            class="form-control form-control-lg @error('password') is-invalid @enderror"
+                                            id="password" name="password" placeholder="password" required
+                                            autocomplete="new-password">
+                                        <button class="btn btn-light" onclick="createpassword('password',this)"
+                                            type="button" id="button-addon2"><i
+                                                class="ri-eye-off-line align-middle"></i></button>
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-xl-12 mb-3">
+                                    <label for="confirm-password" class="form-label text-default">Confirm
+                                        Password</label>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control form-control-lg"
+                                            id="confirm-password" name="password_confirmation"
+                                            placeholder="confirm password" required autocomplete="new-password">
+                                        <button class="btn btn-light"
+                                            onclick="createpassword('confirm-password',this)" type="button"
+                                            id="button-addon21"><i class="ri-eye-off-line align-middle"></i></button>
+                                    </div>
+                                    <div class="form-check mt-3">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="agree" name="agree" required>
+                                        <label class="form-check-label text-muted fw-normal" for="agree">
+                                            By creating a account you agree to our <a
+                                                href="{{ url('terms-conditions') }}" class="text-success"><u>Terms &
+                                                    Conditions</u></a> and <a class="text-success"><u>Privacy
+                                                    Policy</u></a>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-xl-12 d-grid mt-2">
+                                    <button type="submit" class="btn btn-lg btn-primary">Create Account</button>
+                                </div>
+                            </form>
                         </div>
                         <div class="text-center">
-                            <p class="fs-12 text-muted mt-4">Already have an account? <a
-                                    href="{{ url('/signin') }}" class="text-primary">Sign In</a></p>
+                            <p class="fs-12 text-muted mt-4">Already have an account? <a href="{{ url('/login') }}"
+                                    class="text-primary">Sign In</a></p>
                         </div>
                     </div>
                 </div>
@@ -168,7 +198,6 @@
 
     <!-- INTERNAL AUTHENTICATION JS -->
     @vite('resources/assets/js/authentication.js')
-
 
     <!-- SHOW PASSWORD JS -->
     @vite('resources/assets/js/show-password.js')

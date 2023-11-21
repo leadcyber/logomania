@@ -316,8 +316,13 @@
                                 class="ti ti-wallet fs-18 me-2 op-7"></i>Bal: $7,12,950</a></li>
                     <li><a class="dropdown-item d-flex" href="javascript:void(0);"><i
                                 class="ti ti-headset fs-18 me-2 op-7"></i>Support</a></li>
-                    <li><a class="dropdown-item d-flex" href="javascript:void(0);"><i
+                    <li><a class="dropdown-item d-flex" href="javascript:void(0);"
+                            onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();"><i
                                 class="ti ti-logout fs-18 me-2 op-7"></i>Log Out</a></li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                 </ul>
             </div>
             <!-- End::header-element -->
