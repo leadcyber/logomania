@@ -21,6 +21,10 @@ export default defineConfig({
                 'resources/assets/js/sticky.js', 
                 'resources/assets/js/main.js', 
                 'resources/assets/js/defaultmenu.js', 
+                'resources/assets/js/home.js',
+                'resources/assets/js/authentication.js',
+                'resources/assets/js/authentication-main.js',
+                'resources/assets/js/show-password.js'
             ],
             refresh: true,
         }),

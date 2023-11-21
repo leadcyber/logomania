@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 
 // use App\Http\Controllers\Controller;
@@ -21,5 +23,8 @@ use App\Http\Controllers\DashboardController;
 // Route::get('', [Controller::class, 'index']);
 
 // DASHBOARDS //
-Route::get('/', [DashboardController::class, 'index']);
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/signin', [AuthController::class, 'signin']);
+Route::get('/signup', [AuthController::class, 'signup']);
+Route::get('/reset-password', [AuthController::class, 'reset_password']);
 Route::get('dashboard', [DashboardController::class, 'index']);
