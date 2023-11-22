@@ -182,7 +182,7 @@ function switcherClick() {
 
 function ltrFn() {
     let html = document.querySelector('html')
-    document.querySelector("#style")?.setAttribute("href", "http://127.0.0.1:8000/build/assets/libs/bootstrap/css/bootstrap.min.css");
+    document.querySelector("#style")?.setAttribute("href", "/build/assets/libs/bootstrap/css/bootstrap.min.css");
     html.setAttribute("dir", "ltr");
     document.querySelector('#switcher-ltr').checked = true;
     checkOptions();
@@ -191,7 +191,7 @@ function ltrFn() {
 function rtlFn() {
     let html = document.querySelector('html');
     html.setAttribute("dir", "rtl");
-    document.querySelector("#style")?.setAttribute("href", "http://127.0.0.1:8000/build/assets/libs/bootstrap/css/bootstrap.rtl.min.css");
+    document.querySelector("#style")?.setAttribute("href", "/build/assets/libs/bootstrap/css/bootstrap.rtl.min.css");
     checkOptions();
 }
 

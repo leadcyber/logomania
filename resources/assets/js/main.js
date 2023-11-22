@@ -8,7 +8,7 @@
     if (localStorage.ynexrtl) {
         let html = document.querySelector('html');
         html.setAttribute("dir", "rtl");
-        document.querySelector("#style")?.setAttribute("href", "http://127.0.0.1:8000/build/assets/libs/bootstrap/css/bootstrap.rtl.min.css");
+        document.querySelector("#style")?.setAttribute("href", "/build/assets/libs/bootstrap/css/bootstrap.rtl.min.css");
     }
     if (localStorage.ynexlayout) {
         let html = document.querySelector('html');

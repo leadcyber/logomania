@@ -348,7 +348,7 @@ button {
       box-shadow: 0 0 0 0.25rem $black-1;
     }
     &.bg-img1 {
-      background-image: url(http://127.0.0.1:8000/build/assets/images/menu-bg-images/bg-img1.jpg) !important;
+      background-image: url(/build/assets/images/menu-bg-images/bg-img1.jpg) !important;
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -357,7 +357,7 @@ button {
       }
     }
     &.bg-img2 {
-      background-image: url(http://127.0.0.1:8000/build/assets/images/menu-bg-images/bg-img2.jpg) !important;
+      background-image: url(/build/assets/images/menu-bg-images/bg-img2.jpg) !important;
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -366,7 +366,7 @@ button {
       }
     }
     &.bg-img3 {
-      background-image: url(http://127.0.0.1:8000/build/assets/images/menu-bg-images/bg-img3.jpg) !important;
+      background-image: url(/build/assets/images/menu-bg-images/bg-img3.jpg) !important;
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -375,7 +375,7 @@ button {
       }
     }
     &.bg-img4 {
-      background-image: url(http://127.0.0.1:8000/build/assets/images/menu-bg-images/bg-img4.jpg) !important;
+      background-image: url(/build/assets/images/menu-bg-images/bg-img4.jpg) !important;
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -384,7 +384,7 @@ button {
       }
     }
     &.bg-img5 {
-      background-image: url(http://127.0.0.1:8000/build/assets/images/menu-bg-images/bg-img5.jpg) !important;
+      background-image: url(/build/assets/images/menu-bg-images/bg-img5.jpg) !important;
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -449,7 +449,7 @@ button {
         background-image: linear-gradient(to right top, $primary, #6e72a8);
       }
       &.color-transparent {
-        background-image: url(http://127.0.0.1:8000/build/assets/images/menu-bg-images/transparent.png) !important;
+        background-image: url(/build/assets/images/menu-bg-images/transparent.png) !important;
       }
       &.color-bg-1 {
         background-color: rgb(20, 30, 96);
@@ -713,7 +713,7 @@ button {
   }
 }
 .pricing-basic:before {
-  background-image: url(http://127.0.0.1:8000/build/assets/images/media/backgrounds/1.png);
+  background-image: url(/build/assets/images/media/backgrounds/1.png);
   width: 2.5rem;
   height: 2.5rem;
   inset-block-start: 0.375rem;
@@ -721,7 +721,7 @@ button {
   opacity: 0.2;
 }
 .pricing-pro:before {
-  background-image: url(http://127.0.0.1:8000/build/assets/images/media/backgrounds/2.png);
+  background-image: url(/build/assets/images/media/backgrounds/2.png);
   width: 2.5rem;
   height: 2.5rem;
   inset-block-start: 0.375rem;
@@ -729,7 +729,7 @@ button {
   opacity: 0.2;
 }
 .pricing-premium:before {
-  background-image: url(http://127.0.0.1:8000/build/assets/images/media/backgrounds/3.png);
+  background-image: url(/build/assets/images/media/backgrounds/3.png);
   width: 2.5rem;
   height: 2.5rem;
   inset-block-start: 0.375rem;
@@ -1008,7 +1008,7 @@ button {
   position: relative;
   width: 100%;
   height: 25rem;
-  background-image: url("http://127.0.0.1:8000/build/assets/images/media/media-68.jpg");
+  background-image: url("/build/assets/images/media/media-68.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -1275,7 +1275,7 @@ button {
 
 /* Start:: Profile */
 .main-profile-cover {
-  background-image: url("http://127.0.0.1:8000/build/assets/images/media/team-covers/4.jpg");
+  background-image: url("/build/assets/images/media/team-covers/4.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1364,7 +1364,7 @@ button {
 }
 .aboutus-banner {
   width: 100%;
-  background-image: url(http://127.0.0.1:8000/build/assets/images/media/media-79.jpg);
+  background-image: url(/build/assets/images/media/media-79.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2072,7 +2072,7 @@ button {
     content: "";
     height: 100%;
     width: 100%;
-    background-image: url(http://127.0.0.1:8000/build/assets/images/media/media-1.jpg);
+    background-image: url(/build/assets/images/media/media-1.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

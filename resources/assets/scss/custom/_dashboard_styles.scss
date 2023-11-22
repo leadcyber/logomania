@@ -594,7 +594,7 @@
   &:before {
     content: "";
     position: absolute;
-    background-image: url("http://127.0.0.1:8000/build/assets/images/media/media-85.png");
+    background-image: url("/build/assets/images/media/media-85.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -944,7 +944,7 @@
     content: "";
     height: 100%;
     width: 100%;
-    background-image: url(http://127.0.0.1:8000/build/assets/images/media/media-65.png);
+    background-image: url(/build/assets/images/media/media-65.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
