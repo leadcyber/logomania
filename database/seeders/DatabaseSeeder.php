@@ -15,16 +15,18 @@ class DatabaseSeeder extends Seeder
         $user = User::create([
             'firstname' => 'Milos',
             'lastname' => 'Veselinovic',
-            'email' => 'mveselinovic858@gmail.com',
+            'email' => 'admin@gmail.com',
             'role' => 'admin',
+            'email_verified_at' => now(),
             'password' => 'password',
         ]);
 
         $user = User::create([
             'firstname' => 'Admin',
             'lastname' => '',
-            'email' => 'minionhub.dev@gmail.com',
+            'email' => 'user@gmail.com',
             'role' => 'user',
+            'email_verified_at' => now(),
             'password' => 'password',
         ]);
     }
