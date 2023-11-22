@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Models\User;
+
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 use Laravel\Socialite\Facades\Socialite;
+use Carbon\Carbon;
 
 class LoginController extends Controller
 {
@@ -51,6 +53,7 @@ class LoginController extends Controller
             $user->email = $data->email;
             $user->provider = $provider;
             $user->provider_id = $data->id;
+            $user->email_verified_at = Carbon::now();
             $user->avatar = $data->avatar;
             $user->save();
         }
@@ -92,14 +95,17 @@ class LoginController extends Controller
     // twitter Login
     public function redirectToTwitter()
     {
-        return Socialite::driver('twitter')->stateless()->redirect();
+        return Socialite::driver('twitter')->redirect();
     }
 
     // twitter callback  
     public function handleTwitterCallback()
     {
-
-        $user = Socialite::driver('twitter')->stateless()->user();
+        try {
+            $user = Socialite::driver('twitter')->user();
+        } catch (\Exception $e) {
+            return redirect('/login')->withErrors('Twitter authentication failed');
+        }
 
         $this->_registerorLoginUser($user, 'twitter');
         return redirect()->route('home');

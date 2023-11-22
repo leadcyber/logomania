@@ -53,64 +53,65 @@
                     </a>
                 </li>
 
-                
-                <!-- Start::slide__category -->
-                <li class="slide__category"><span class="category-name">Admin</span></li>
-                <!-- End::slide__category -->
-                
-                <li class="slide">
-                    <a href="javascript:void(0);;" class="side-menu__item">
-                        <i class="bx bx-edit side-menu__icon"></i>
-                        <span class="side-menu__label">Localization</span>
-                    </a>
-                </li>
-                <li class="slide">
-                    <a href="javascript:void(0);;" class="side-menu__item">
-                        <i class="bx bx-user side-menu__icon"></i>
-                        <span class="side-menu__label">User</span>
-                    </a>
-                </li>
-                <li class="slide">
-                    <a href="javascript:void(0);;" class="side-menu__item">
-                        <i class="bx bx-dollar-circle side-menu__icon"></i>
-                        <span class="side-menu__label">Subscription</span>
-                    </a>
-                </li>
-                <li class="slide">
-                    <a href="javascript:void(0);;" class="side-menu__item">
-                        <i class="bx bx-history side-menu__icon"></i>
-                        <span class="side-menu__label">Log</span>
-                    </a>
-                </li>
+                @if (Auth::user()->role == 'admin')
+                    <!-- Start::slide__category -->
+                    <li class="slide__category"><span class="category-name">Admin</span></li>
+                    <!-- End::slide__category -->
 
-                <!-- Start::slide__category -->
-                <li class="slide__category"><span class="category-name">Logo Generation</span></li>
-                <!-- End::slide__category -->
+                    <li class="slide">
+                        <a href="javascript:void(0);;" class="side-menu__item">
+                            <i class="bx bx-edit side-menu__icon"></i>
+                            <span class="side-menu__label">Localization</span>
+                        </a>
+                    </li>
+                    <li class="slide">
+                        <a href="javascript:void(0);;" class="side-menu__item">
+                            <i class="bx bx-user side-menu__icon"></i>
+                            <span class="side-menu__label">User</span>
+                        </a>
+                    </li>
+                    <li class="slide">
+                        <a href="javascript:void(0);;" class="side-menu__item">
+                            <i class="bx bx-dollar-circle side-menu__icon"></i>
+                            <span class="side-menu__label">Subscription</span>
+                        </a>
+                    </li>
+                    <li class="slide">
+                        <a href="javascript:void(0);;" class="side-menu__item">
+                            <i class="bx bx-history side-menu__icon"></i>
+                            <span class="side-menu__label">Log</span>
+                        </a>
+                    </li>
 
-                <li class="slide">
-                    <a href="javascript:void(0);;" class="side-menu__item">
-                        <i class="bx bx-font side-menu__icon"></i>
-                        <span class="side-menu__label">Font</span>
-                    </a>
-                </li>
-                <li class="slide">
-                    <a href="javascript:void(0);;" class="side-menu__item">
-                        <i class="bx bx-buildings side-menu__icon"></i>
-                        <span class="side-menu__label">Family</span>
-                    </a>
-                </li>
-                <li class="slide">
-                    <a href="javascript:void(0);;" class="side-menu__item">
-                        <i class="bx bx-image side-menu__icon"></i>
-                        <span class="side-menu__label">Icon</span>
-                    </a>
-                </li>
-                <li class="slide">
-                    <a href="javascript:void(0);;" class="side-menu__item">
-                        <i class="bx bx-palette side-menu__icon"></i>
-                        <span class="side-menu__label">Palette</span>
-                    </a>
-                </li>
+                    <!-- Start::slide__category -->
+                    <li class="slide__category"><span class="category-name">Logo Generation</span></li>
+                    <!-- End::slide__category -->
+
+                    <li class="slide">
+                        <a href="javascript:void(0);;" class="side-menu__item">
+                            <i class="bx bx-font side-menu__icon"></i>
+                            <span class="side-menu__label">Font</span>
+                        </a>
+                    </li>
+                    <li class="slide">
+                        <a href="javascript:void(0);;" class="side-menu__item">
+                            <i class="bx bx-buildings side-menu__icon"></i>
+                            <span class="side-menu__label">Family</span>
+                        </a>
+                    </li>
+                    <li class="slide">
+                        <a href="javascript:void(0);;" class="side-menu__item">
+                            <i class="bx bx-image side-menu__icon"></i>
+                            <span class="side-menu__label">Icon</span>
+                        </a>
+                    </li>
+                    <li class="slide">
+                        <a href="javascript:void(0);;" class="side-menu__item">
+                            <i class="bx bx-palette side-menu__icon"></i>
+                            <span class="side-menu__label">Palette</span>
+                        </a>
+                    </li>
+                @endif
 
                 <li class="slide has-sub">
                     <a href="javascript:void(0);;" class="side-menu__item">
