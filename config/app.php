@@ -168,6 +168,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\TranslationServiceProvider::class,
         Mailjet\LaravelMailjet\MailjetServiceProvider::class,
         // Mailjet\LaravelMailjet\Providers\CampaignDraftServiceProvider::class
     ])->toArray(),
