@@ -11,4 +11,5 @@ class Icon extends Model
 
     protected $fillable = ['family_id', 'filename', 'fillable', 'colorized'];
 
+    public $timestamps = false;
 }

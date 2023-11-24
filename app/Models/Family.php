@@ -10,4 +10,6 @@ class Family extends Model
     use HasFactory;
 
     protected $fillable = ['text_code'];
+
+    public $timestamps = false;
 }

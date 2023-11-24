@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('icons', function (Blueprint $table) {
+        Schema::create('family_palette', function (Blueprint $table) {
             $table->id();
             $table->integer('family_id');
-            $table->string('filename');
-            $table->enum('type', ['fillable', 'color']);
+            $table->integer('palette_id');
         });
     }
 
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('icons');
+        Schema::dropIfExists('family_palette');
     }
 };

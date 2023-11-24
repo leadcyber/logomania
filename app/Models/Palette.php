@@ -10,4 +10,6 @@ class Palette extends Model
     use HasFactory;
 
     protected $fillable = ['background', 'text1', 'text2', 'icon'];
+
+    public $timestamps = false;
 }

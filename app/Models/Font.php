@@ -10,4 +10,6 @@ class Font extends Model
     use HasFactory;
 
     protected $fillable = ['family_id', 'filename', 'fontname'];
+
+    public $timestamps = false;
 }

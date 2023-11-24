@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use App\Models\Palette;
 
 class PalettesTableSeeder extends Seeder
@@ -13,7 +14,7 @@ class PalettesTableSeeder extends Seeder
      */
     public function run(): void
     {
-        // Replace the path with the actual path to your CSV file
+        // Palettes CSV file
         $csvFilePath = env("PATH_PALETTES_CSV");
 
         $csvData = array_map('str_getcsv', file($csvFilePath));
@@ -35,6 +36,29 @@ class PalettesTableSeeder extends Seeder
         // Batch insert into the palettes table
         foreach ($palettes as $palette) {
             Palette::create($palette);
+        }
+
+
+        // Family_Palette CSV file
+        $csvFilePath = env("PATH_FAMILY_PALETTE_CSV");
+
+        $csvData = array_map('str_getcsv', file($csvFilePath));
+
+        // Skip the header row
+        array_shift($csvData);
+
+        $family_palettes = [];
+
+        foreach ($csvData as $row) {
+            $family_palettes[] = [
+                'palette_id' => trim($row[1]),
+                'family_id' => trim($row[2]),
+            ];
+        }
+
+        // Batch insert into the palettes table
+        foreach ($family_palettes as $family_palette) {
+            DB::table('family_palette')->insert($family_palette);
         }
     }
 }

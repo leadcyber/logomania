@@ -10,4 +10,6 @@ class Translation extends Model
     use HasFactory;
 
     protected $fillable = ['group', 'key', 'locale', 'value'];
+
+    public $timestamps = false;
 }

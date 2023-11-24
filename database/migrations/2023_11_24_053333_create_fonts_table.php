@@ -15,7 +15,6 @@ return new class extends Migration {
             $table->integer('family_id');
             $table->string('filename');
             $table->string('fontname')->nullable();
-            $table->timestamps();
         });
     }
 
