@@ -17,7 +17,7 @@
                                 <h5 class="fw-semibold text-fixed-white op-9">BRILLIANCE IN EXECUTION</h5>
                             </div>
                             <p class="landing-banner-heading mb-3">Your sure stop place for best theme ends here with <span
-                                    class="text-secondary">LOGOMANIA !</span></p>
+                                    class="text-secondary">LOGOMANIA ! {{ __('messages.greeting') }}</span></p>
                             <div class="fs-16 mb-5 text-fixed-white op-7">logomania - Now you can use this admin template to
                                 design stunning dashboards that will wow your target viewers or users to no end.</div>
                             <a href="{{ url('/') }}" class="m-1 btn btn-primary">
