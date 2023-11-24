@@ -24,7 +24,8 @@ export default defineConfig({
                 'resources/assets/js/home.js',
                 'resources/assets/js/authentication.js',
                 'resources/assets/js/authentication-main.js',
-                'resources/assets/js/show-password.js'
+                'resources/assets/js/show-password.js',
+                'resources/assets/js/error.js'
             ],
             refresh: true,
         }),

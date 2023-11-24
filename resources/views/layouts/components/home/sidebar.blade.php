@@ -120,17 +120,47 @@
                         <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path>
                     </svg></div>
                 <div class="d-lg-flex d-none">
-                    <div class="btn-list d-lg-flex d-none mt-lg-2 mt-xl-0 mt-0">
+
+                    <div class="d-flex align-items-center d-lg-flex d-none mt-lg-2 mt-xl-0 mt-0">
+                        <!-- Start::header-link|dropdown-toggle -->
+                        <div class="country-selector me-2 mb-0">
+                            <a href="javascript:void(0);" class="header-link dropdown-toggle"
+                                data-bs-auto-close="outside" data-bs-toggle="dropdown">
+                                <img src="{{ asset('build/assets/images/flags/'.app()->getLocale().'.jpg') }}" alt="img"
+                                    class="rounded-circle header-link-icon">
+                            </a>
+                            <!-- End::header-link|dropdown-toggle -->
+                            <ul class="main-header-dropdown dropdown-menu dropdown-menu-end"
+                                data-popper-placement="none">
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="?lang=en">
+                                        <span class="avatar avatar-xs lh-1 me-2">
+                                            <img src="{{ asset('build/assets/images/flags/en.jpg') }}" alt="img">
+                                        </span>
+                                        English
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="?lang=fr">
+                                        <span class="avatar avatar-xs lh-1 me-2">
+                                            <img src="{{ asset('build/assets/images/flags/fr.jpg') }}" alt="img">
+                                        </span>
+                                        French
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
                         @auth
-                            <a href="{{ url('/dashboard') }}" class="btn btn-primary">
+                            <a href="{{ url('/dashboard') }}" class="btn btn-primary m-0">
                                 Dashboard
                             </a>
                         @else
-                            <a href="{{ url('/register') }}" class="btn btn-primary">
+                            <a href="{{ url('/register') }}" class="btn btn-primary m-0">
                                 Sign Up
                             </a>
                         @endauth
-                        <button class="btn btn-wave btn-icon btn-light switcher-icon" data-bs-toggle="offcanvas"
+                        <button class="btn btn-wave btn-icon btn-light switcher-icon m-0" data-bs-toggle="offcanvas"
                             data-bs-target="#switcher-canvas">
                             <i class="ri-settings-3-line"></i>
                         </button>
