@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             TranslationsTableSeeder::class,
             IconsTableSeeder::class,
+            FontsTableSeeder::class,
         ]);
     }
 }

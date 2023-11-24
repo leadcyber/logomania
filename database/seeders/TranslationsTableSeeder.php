@@ -94,9 +94,11 @@ class TranslationsTableSeeder extends Seeder
         foreach ($translations as $locale => $groupTranslations) {
             foreach ($groupTranslations as $key => $value) {
                 // Insert into families table
-                Family::create([
-                    'text_code' => 'families.'.$key,
-                ]);
+                $family = Family::where('text_code', 'families.'.$key)->first();
+                if (!$family)
+                    Family::create([
+                        'text_code' => 'families.'.$key,
+                    ]);
 
                 // Insert into translations table
                 Translation::create([
