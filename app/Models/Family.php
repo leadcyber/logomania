@@ -12,4 +12,20 @@ class Family extends Model
     protected $fillable = ['text_code'];
 
     public $timestamps = false;
+
+    public function fonts() {
+        $this->hasMany(Font::class);
+    }
+
+    public function icons() {
+        $this->hasMany(Icon::class);
+    }
+
+    public function palettes() {
+        $this->belongsToMany(Palette::class);
+    }
+
+    public function combinations() {
+        $this->hasMany(Combination::class);
+    }
 }
