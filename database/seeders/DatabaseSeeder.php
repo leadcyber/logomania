@@ -13,9 +13,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UsersTableSeeder::class,
-            TranslationsTableSeeder::class,
+            FamiliesTableSeeder::class,
             IconsTableSeeder::class,
             FontsTableSeeder::class,
+            PalettesTableSeeder::class,
         ]);
     }
 }

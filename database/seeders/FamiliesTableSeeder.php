@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Translation;
 use App\Models\Family;
 
-class TranslationsTableSeeder extends Seeder
+class FamiliesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

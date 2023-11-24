@@ -13,7 +13,7 @@ class IconsTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $icons = $this->scanIconsDirectory(env('DIR_ICONS'));
+        $icons = $this->scanIconsDirectory(env('PATH_ICONS_DIR'));
         foreach ($icons as $icon) {
             if ($icon['family_id']) {
                 Icon::create($icon);

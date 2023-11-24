@@ -13,7 +13,7 @@ class FontsTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $fonts = $this->scanFontsDirectory(env("DIR_FONTS"));
+        $fonts = $this->scanFontsDirectory(env("PATH_FONTS_DIR"));
         foreach ($fonts as $font) {
             if ($font['family_id']) {
                 Font::create($font);
