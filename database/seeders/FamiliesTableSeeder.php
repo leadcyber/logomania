@@ -14,100 +14,48 @@ class FamiliesTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $translations = [
-            'fr' => [
-                'food' => 'Alimentation',
-                'animals' => 'Animaux',
-                'airplane' => 'Avion',
-                'boat' => 'Bateau',
-                'truck' => 'Camion',
-                'cinema' => 'Cinéma',
-                'trade' => 'Commerce',
-                'culture' => 'Culture',
-                'law' => 'Droit',
-                'education' => 'Education',
-                'childhood' => 'Enfance',
-                'aesthetics' => 'Esthétique',
-                'event_planning' => 'Evènementiel',
-                'finance' => 'Finance',
-                'hightech' => 'High Tech',
-                'hospitality' => 'Hôtellerie',
-                'literature' => 'Littérature',
-                'leisure_games' => 'Loisirs & Jeux',
-                'home' => 'Maison',
-                'audio_media' => 'Média Audio',
-                'print_media' => 'Média Imprimé',
-                'motorcycle' => 'Moto',
-                'music' => 'Musique',
-                'nature' => 'Nature',
-                'dating' => 'Rencontres',
-                'health' => 'Santé',
-                'security' => 'Sécurité',
-                'personal_services' => 'Services à la personne',
-                'sports' => 'Sports',
-                'theatre_dance' => 'Théâtre & Danse',
-                'construction' => 'Travaux',
-                'bicycle' => 'Vélo',
-                'automobile' => 'Automobile',
-                'travel' => 'Voyage',
-                'web' => 'Web',
-            ],
-            'en' => [
-                'food' => 'Food',
-                'animals' => 'Animals',
-                'airplane' => 'Airplane',
-                'boat' => 'Boat',
-                'truck' => 'Truck',
-                'cinema' => 'Cinema',
-                'trade' => 'Trade',
-                'culture' => 'Culture',
-                'law' => 'Law',
-                'education' => 'Education',
-                'childhood' => 'Childhood',
-                'aesthetics' => 'Aesthetics',
-                'event_planning' => 'Event Planning',
-                'finance' => 'Finance',
-                'hightech' => 'High Tech',
-                'hospitality' => 'Hospitality',
-                'literature' => 'Literature',
-                'leisure_games' => 'Leisure & Games',
-                'home' => 'Home',
-                'audio_media' => 'Audio Media',
-                'print_media' => 'Print Media',
-                'motorcycle' => 'Motorcycle',
-                'music' => 'Music',
-                'nature' => 'Nature',
-                'dating' => 'Dating',
-                'health' => 'Health',
-                'security' => 'Security',
-                'personal_services' => 'Personal Services',
-                'sports' => 'Sports',
-                'theatre_dance' => 'Theatre & Dance',
-                'construction' => 'Construction',
-                'bicycle' => 'Bicycle',
-                'automobile' => 'Automobile',
-                'travel' => 'Travel',
-                'web' => 'Web',
-            ],
+        $families = [
+            'food',
+            'animals',
+            'airplane',
+            'boat',
+            'truck',
+            'cinema',
+            'trade',
+            'culture',
+            'law',
+            'education',
+            'childhood',
+            'aesthetics',
+            'event_planning',
+            'finance',
+            'hightech',
+            'hospitality',
+            'literature',
+            'leisure_games',
+            'home',
+            'audio_media',
+            'print_media',
+            'motorcycle',
+            'music',
+            'nature',
+            'dating',
+            'health',
+            'security',
+            'personal_services',
+            'sports',
+            'theatre_dance',
+            'construction',
+            'bicycle',
+            'automobile',
+            'travel',
+            'web'
         ];
 
-        foreach ($translations as $locale => $groupTranslations) {
-            foreach ($groupTranslations as $key => $value) {
-                // Insert into families table
-                $family = Family::where('text_code', 'families.'.$key)->first();
-                if (!$family)
-                    Family::create([
-                        'text_code' => 'families.'.$key,
-                    ]);
-
-                // Insert into translations table
-                Translation::create([
-                    'group' => 'families',
-                    'key' => $key,
-                    'locale' => $locale,
-                    'value' => $value,
-                ]);
-            }
+        foreach ($families as $family) {
+            Family::create([
+                'text_code' => 'families.' . $family,
+            ]);
         }
     }
 }
