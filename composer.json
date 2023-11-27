@@ -13,6 +13,7 @@
         "laravel/tinker": "^2.8",
         "laravel/ui": "^4.2",
         "mailjet/laravel-mailjet": "^3.0",
+        "openai-php/laravel": "^0.7.0",
         "socialiteproviders/twitter": "^4.1",
         "symfony/http-client": "^6.3"
     },

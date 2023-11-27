@@ -12,6 +12,6 @@ class Topic extends Model
     protected $fillable = ['user_id', 'family1_id', 'family2_id', 'company_name', 'desc', 'suggestions'];
 
     public function logos() {
-        $this->hasMany(Logo::class);
+        return $this->hasMany(Logo::class);
     }
 }

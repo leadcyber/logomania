@@ -12,4 +12,9 @@ class Font extends Model
     protected $fillable = ['family_id', 'filename', 'fontname'];
 
     public $timestamps = false;
+
+    public function family()
+    {
+        return $this->belongsTo(Family::class, 'family_id');
+    }
 }

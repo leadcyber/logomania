@@ -1,1 +1,22 @@
 @import "../assets/scss/styles.scss";
+
+@media (min-width: 992px) {
+    .landing-body .app-sidebar {
+        background-color: var(--primary-color);
+    }
+
+    section.logo {
+        padding-top: 150px !important;
+    }
+}
+
+.landing-body .main-content {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.logo-topic {
+    max-width: 700px;
+}
