@@ -29,7 +29,7 @@ class FamiliesTableSeeder extends Seeder
             'aesthetics',
             'event_planning',
             'finance',
-            'hightech',
+            'high_tech',
             'hospitality',
             'literature',
             'leisure_games',

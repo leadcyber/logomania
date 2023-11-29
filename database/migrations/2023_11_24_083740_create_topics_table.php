@@ -17,8 +17,8 @@ return new class extends Migration
             $table->integer('family1_id');
             $table->integer('family2_id');
             $table->string('company_name')->nullable();
-            $table->string('desc')->nullable();
-            $table->string('suggestions')->nullable();
+            $table->string('desc', 1024)->nullable();
+            $table->string('suggestions', 1024)->nullable();
             $table->timestamps();
         });
     }
