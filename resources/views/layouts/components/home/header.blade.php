@@ -38,6 +38,36 @@
         <div class="header-content-right">
 
             <!-- Start::header-element -->
+            <div class="header-element country-selector mr-2 me-0">
+                <!-- Start::header-link|dropdown-toggle -->
+                <a href="javascript:void(0);" class="header-link dropdown-toggle" data-bs-auto-close="outside"
+                    data-bs-toggle="dropdown">
+                    <img src="{{ asset('build/assets/images/flags/'.app()->getLocale().'.jpg') }}" alt="img"
+                        class="rounded-circle header-link-icon">
+                </a>
+                <!-- End::header-link|dropdown-toggle -->
+                <ul class="main-header-dropdown dropdown-menu dropdown-menu-end" data-popper-placement="none">
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center" href="?lang=en">
+                            <span class="avatar avatar-xs lh-1 me-2">
+                                <img src="{{ asset('build/assets/images/flags/en.jpg') }}" alt="img">
+                            </span>
+                            English
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center" href="?lang=fr">
+                            <span class="avatar avatar-xs lh-1 me-2">
+                                <img src="{{ asset('build/assets/images/flags/fr.jpg') }}" alt="img">
+                            </span>
+                            French
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- End::header-element -->
+
+            <!-- Start::header-element -->
             <div class="header-element align-items-center">
                 <!-- Start::header-link|switcher-icon -->
                 <div class="btn-list d-lg-none d-block">
