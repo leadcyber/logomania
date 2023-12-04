@@ -35,8 +35,20 @@ class SetLanguage
         // Set the application locale
         app()->setLocale($lang);
 
-        $request->query->remove('lang');
+        // Remove lang parameter from the url and redirect
         if ($request->query->has('lang')) {
+            // Remove 'lang' parameter from the query string
+            $query = $request->query();
+            unset($query['lang']);
+
+            // Update the request with the modified query
+            $request->merge(['query' => $query]);
+
+            // Generate the new URL without the 'lang' parameter
+            $newUrl = urldecode(route($request->route()->getName(), $query));
+
+            // Redirect to the new URL
+            return redirect($newUrl);
         }
 
         return $next($request);
