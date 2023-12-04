@@ -99,8 +99,6 @@
         }
 
         function toggleFavorite(e, i) {
-            console.log($(e).closest('.svg-wrapper'));
-            console.log(i);
             var parent = $(e).closest('.svg-wrapper');
             if (parent.hasClass('favorite')) {
                 parent.removeClass('favorite');
@@ -110,7 +108,6 @@
                 parent.addClass('favorite');
                 favorites.push(i);
             }
-            console.log(favorites);
         }
 
         fetchSVGs();
