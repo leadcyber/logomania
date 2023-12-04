@@ -28,7 +28,7 @@
                             <textarea type="text" class="form-control" id="desc" name="desc" rows="8"></textarea>
                             <label for="desc">What is the primary function of your business?</label>
                         </div>
-                        <div class="form-floating mb-3">
+                        {{-- <div class="form-floating mb-3">
                             <select class="form-select" id="family1" name="family1_id"
                                 aria-label="Floating label select" required>
                                 <option value="" selected>Select your industry</option>
@@ -47,7 +47,7 @@
                                 @endforeach
                             </select>
                             <label for="family2">Secondary Industry</label>
-                        </div>
+                        </div> --}}
                         <button class="btn btn-primary" type="submit">Generate</button>
                     </form>
                 </div>

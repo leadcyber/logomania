@@ -47,6 +47,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/logo/topic', [LogoController::class, 'topic'])->name('logo.topic');
 Route::post('/logo/topic', [LogoController::class, 'storeTopic'])->name('logo.topic');
 Route::get('/logo/generate', [LogoController::class, 'generate'])->name('logo.generate');
+Route::get('/logo/svgs', [LogoController::class, 'generateSVGs'])->name('logo.svgs');
 
 // Private routes
 Route::middleware(['auth', 'verified'])->group(function () {

@@ -35,6 +35,10 @@ class SetLanguage
         // Set the application locale
         app()->setLocale($lang);
 
+        $request->query->remove('lang');
+        if ($request->query->has('lang')) {
+        }
+
         return $next($request);
     }
 }

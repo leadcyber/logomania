@@ -20,3 +20,17 @@
 .logo-topic {
     max-width: 700px;
 }
+
+/* Style for the skeleton loading effect */
+.skeleton {
+    width: 100%;
+    height: 300px; /* Set the desired height for your image */
+    background-color: #d0d0d0; /* Set the background color of the skeleton */
+    animation: pulse 1.5s infinite; /* Add a subtle animation for visual appeal */
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 0.9; }
+    100% { opacity: 0.6; }
+}
