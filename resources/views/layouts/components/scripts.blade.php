@@ -4,6 +4,9 @@
 </div>
 <div id="responsive-overlay"></div>
 
+<!-- JQUERY -->
+<script src="{{ asset('build/assets/libs/jquery/jquery.min.js') }}"></script>
+
 <!-- POPPER JS -->
 <script src="{{ asset('build/assets/libs/@popperjs/core/umd/popper.min.js') }}"></script>
 
@@ -20,3 +23,13 @@
 
 <!-- COLOR PICKER JS -->
 <script src="{{ asset('build/assets/libs/@simonwep/pickr/pickr.es5.min.js') }}"></script>
+
+<script>
+    $.ajaxSetup({
+        headers: {
+            'Content-Type': 'application/json',
+            // You can add other headers as needed
+            // 'Authorization': 'Bearer YourAccessToken',
+        }
+    });
+</script>
