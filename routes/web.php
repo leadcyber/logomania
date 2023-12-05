@@ -43,7 +43,7 @@ Route::post('/email/verification-notification', function (Request $request) {
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
 // Public routes
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/logo/topic', [LogoController::class, 'topic'])->name('logo.topic');
 Route::post('/logo/topic', [LogoController::class, 'storeTopic'])->name('logo.topic');
 Route::get('/logo/generate', [LogoController::class, 'generate'])->name('logo.generate');
