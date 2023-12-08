@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="6.82666in" height="6.82666in" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 6.82666 6.82666"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil4 {fill:none}
+    .fil8 {fill:#414141}
+    .fil3 {fill:#757575}
+    .fil7 {fill:#DEDEDE}
+    .fil0 {fill:#E1E1E2}
+    .fil6 {fill:#F3F3F3}
+    .fil5 {fill:#757575;fill-rule:nonzero}
+    .fil1 {fill:#AEAEAF;fill-rule:nonzero}
+    .fil2 {fill:#C4C4C4;fill-rule:nonzero}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <polygon class="fil0" points="5.33333,2.99096 5.33333,5.6542 5.33333,5.76517 5.22667,5.76517 1.6,5.76517 1.49333,5.76517 1.49333,5.6542 1.49333,2.99096 1.49333,2.88 1.6,2.88 5.22667,2.88 5.33333,2.88 "/>
+  <path class="fil1" d="M5.30489 0.959988l0.600004 1.92001c-1.66104,0 -3.32208,0 -4.98313,0l0.600004 -1.92001c1.26104,0 2.52208,0 3.78312,0z"/>
+  <polygon class="fil2" points="3.5263,0.959988 3.93029,0.959988 4.131,2.88 3.513,2.88 "/>
+  <polygon class="fil3" points="2.94445,3.09333 2.94445,5.54666 1.70667,5.54666 1.70667,3.09333 "/>
+  <g id="_339784848">
+   <rect id="_339785280" class="fil4" width="6.82666" height="6.82666"/>
+   <rect id="_339785424" class="fil4" x="0.853331" y="0.853331" width="5.12" height="5.12"/>
+  </g>
+  <polygon class="fil5" points="1.14786,5.75999 5.73452,5.75999 5.73452,5.97333 1.14786,5.97333 "/>
+  <polygon class="fil2" points="4.1445,0.959988 4.54248,0.959988 4.94095,2.88 4.34521,2.88 "/>
+  <polygon class="fil2" points="2.89637,0.959988 3.31379,0.959988 3.30048,2.88 2.69567,2.88 "/>
+  <polygon class="fil2" points="2.28418,0.959988 2.68216,0.959988 2.48145,2.88 1.88571,2.88 "/>
+  <g id="_339783912">
+   <path id="_339784392" class="fil6" d="M3.19555 3.52763c0,-0.105071 0.0861811,-0.191185 0.191441,-0.191185l1.4307 0c0.105295,0 0.191189,0.0861142 0.191189,0.191185l0 1.43089c0,0.105055 -0.0858937,0.191189 -0.191205,0.191189l-1.43069 0c-0.10526,0 -0.191441,-0.0861181 -0.191441,-0.191189l0 -1.43089z"/>
+   <path id="_339784080" class="fil7" d="M5.00888 3.52763l0 1.43089c0,0.105055 -0.0858937,0.191189 -0.191205,0.191189l-1.43069 0 1.62189 -1.62208z"/>
+  </g>
+  <path class="fil8" d="M2.67104 4.15781c0.0751457,0 0.136063,0.0609173 0.136063,0.136063 0,0.0751496 -0.0609173,0.136063 -0.136063,0.136063 -0.0751496,0 -0.136063,-0.0609134 -0.136063,-0.136063 0,-0.0751457 0.0609134,-0.136063 0.136063,-0.136063z"/>
+ </g>
+</svg>

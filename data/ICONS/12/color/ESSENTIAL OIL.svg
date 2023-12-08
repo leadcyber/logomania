@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <title>ESSENTIAL OIL</title>
+  <g>
+    <path d="M70.59,33.92H57.409V16.864A6.59,6.59,0,0,1,64,10.273h0a6.59,6.59,0,0,1,6.59,6.591Z" fill="#81a1b1"/>
+    <rect x="55.545" y="47.191" width="16.91" height="10.981" fill="#5a7983"/>
+    <rect x="51.272" y="32.273" width="25.454" height="16.909" fill="#b2d6da"/>
+    <rect x="43.193" y="56.182" width="41.613" height="61.546" rx="10" fill="#81a1b1"/>
+    <rect x="43.193" y="73.182" width="41.613" height="27.546" fill="#b2d6da"/>
+  </g>
+</svg>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+<g>
+	<g>
+		<polygon fill="#FFE352" points="128,299 108,326 56,326 56,286 24,286 24,302 10,315 10,358 42,388 106,388 138,358 138,299 		"/>
+	</g>
+	<g>
+		<g>
+			<polygon fill="#466089" points="163,72 282,269 227,269 210,286 125,72 			"/>
+		</g>
+		<g>
+			<g>
+				<g>
+					<polygon fill="#FFE352" points="210,286 210,363 462,363 462,239 431,239 431,269 227,269 					"/>
+				</g>
+				<g>
+					<polygon fill="#6E83B7" points="255,269 295,85 431,85 431,269 					"/>
+				</g>
+				<g>
+					<polygon fill="#80D6FB" points="279.815,249 311,105 411,105 411,249 					"/>
+				</g>
+				<g>
+					<g>
+						<g>
+							<rect x="301" y="299" fill="#FFB236" width="10" height="34"/>
+						</g>
+					</g>
+					<g>
+						<g>
+							<rect x="321" y="299" fill="#FFB236" width="10" height="34"/>
+						</g>
+					</g>
+					<g>
+						<g>
+							<rect x="341" y="299" fill="#FFB236" width="10" height="34"/>
+						</g>
+					</g>
+					<g>
+						<g>
+							<rect x="361" y="299" fill="#FFB236" width="10" height="34"/>
+						</g>
+					</g>
+				</g>
+			</g>
+			<g>
+				<path fill="#6E83B7" d="M462,443H210c-22.091,0-40-17.909-40-40v0c0-22.091,17.909-40,40-40h252c22.091,0,40,17.909,40,40v0
+					C502,425.091,484.091,443,462,443z"/>
+			</g>
+			<g>
+				<path fill="#466089" d="M210,423c-11.028,0-20-8.972-20-20s8.972-20,20-20h252c11.028,0,20,8.972,20,20s-8.972,20-20,20H210z"/>
+			</g>
+			<g>
+				<g>
+					<circle fill="#6E83B7" cx="448" cy="403" r="14"/>
+				</g>
+				<g>
+					<circle fill="#6E83B7" cx="392" cy="403" r="14"/>
+				</g>
+				<g>
+					<circle fill="#6E83B7" cx="336" cy="403" r="14"/>
+				</g>
+				<g>
+					<circle fill="#6E83B7" cx="280" cy="403" r="14"/>
+				</g>
+				<g>
+					<circle fill="#6E83B7" cx="224" cy="403" r="14"/>
+				</g>
+			</g>
+		</g>
+		<g>
+			<polygon fill="#6E83B7" points="125,72 19,286 57.043,286 163,72 			"/>
+		</g>
+		<g>
+			<circle fill="#EDEFF1" cx="141" cy="83" r="30"/>
+		</g>
+		<g>
+			<circle fill="#D3D3D3" cx="141" cy="83" r="16"/>
+		</g>
+		<g>
+			<path fill="#FFB236" d="M40,336c11.232,0,21.609-3.724,29.965-10H56v-40H24v16l-14,13v10.973C18.363,332.265,28.752,336,40,336z"
+				/>
+		</g>
+		<g>
+			<circle fill="#EDEFF1" cx="40" cy="286" r="30"/>
+		</g>
+		<g>
+			<circle fill="#D3D3D3" cx="40" cy="286" r="16"/>
+		</g>
+	</g>
+</g>
+</svg>

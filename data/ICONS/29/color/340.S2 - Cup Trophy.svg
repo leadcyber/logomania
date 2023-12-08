@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="6.82666in" height="6.82666in" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 6.82666 6.82666"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <font id="FontID0" font-variant="normal" style="fill-rule:nonzero" font-weight="700">
+	<font-face 
+		font-family="Arial">
+	</font-face>
+   <missing-glyph><path d="M0 0z"/></missing-glyph>
+   <glyph unicode="1" horiz-adv-x="556"><path d="M393.499 0l-137.166 0 0 517.167c-50.1649,-46.9995 -109.166,-81.666 -177.165,-104l0 124.498c35.6652,11.6661 74.665,33.8337 116.664,66.4994 42.0027,32.835 70.8361,71.002 86.3345,114.667l111.332 0 0 -718.832z"/></glyph>
+  </font>
+  <style type="text/css">
+   <![CDATA[
+    @font-face { font-family:"Arial";src:url("#FontID0") format(svg)}
+    .fil4 {fill:none}
+    .fil2 {fill:#21444C}
+    .fil1 {fill:#E9A403}
+    .fil0 {fill:#FFB300}
+    .fil3 {fill:white}
+    .fnt0 {font-weight:bold;font-size:1.16294;font-family:'Arial'}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_322878872">
+   <path id="_322879544" class="fil0" d="M3.92849 3.23409l0 1.73314 -1.03033 0 0 -1.73314c0.165622,0.0366535 0.338083,0.0561181 0.515161,0.0561181l3.93701e-006 0c0.177075,0 0.349539,-0.0194646 0.515161,-0.0561181z"/>
+   <rect id="_322879112" class="fil1" x="2.2943" y="4.63194" width="2.23806" height="0.675329"/>
+   <polygon id="_322878680" class="fil2" points="1.79516,5.2771 5.0315,5.2771 5.28911,5.97333 1.53754,5.97333 "/>
+   <path id="_322878608" class="fil1" d="M1.68141 0.853331l3.46384 0 0 0.855772c0,0.952547 -0.779362,1.73191 -1.73192,1.73191l-3.93701e-006 0c-0.952555,0 -1.73192,-0.779366 -1.73192,-1.73191l0 -0.855772z"/>
+   <path id="_322878344" class="fil3" d="M3.41333 1.35883c0.406906,0 0.736764,0.329862 0.736764,0.736768 0,0.406902 -0.329858,0.736764 -0.736764,0.736764 -0.406906,0 -0.736764,-0.329862 -0.736764,-0.736764 0,-0.406906 0.329858,-0.736768 0.736764,-0.736768z"/>
+   <text x="3.06222" y="2.51358" id="_322878440" class="fil0 fnt0">1</text>
+  </g>
+ </g>
+ <rect class="fil4" width="6.82666" height="6.82666"/>
+</svg>

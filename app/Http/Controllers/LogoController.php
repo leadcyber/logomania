@@ -275,7 +275,19 @@ class LogoController extends Controller
 
                 // Change the color of icon
                 if ($icon['type'] == 'fillable') {
-                    $iconContent = preg_replace('/fill="#[0-9a-fA-F]{6}"/', 'fill="#' . $data['palette']['icon'] . '"', $iconContent);
+                    $iconContent = preg_replace('/fill="#[0-9a-fA-F]{3,6}"/', 'fill="#' . $data['palette']['icon'] . '"', $iconContent);
+                    $iconContent = preg_replace('/fill:#[0-9a-fA-F]{3,6}/', 'fill:#' . $data['palette']['icon'], $iconContent);
+                    $iconContent = preg_replace('/stroke="#[0-9a-fA-F]{3,6}"/', 'stroke="#' . $data['palette']['icon'] . '"', $iconContent);
+                    $iconContent = preg_replace('/stroke:#[0-9a-fA-F]{3,6}/', 'stroke:#' . $data['palette']['icon'], $iconContent);
+                    $iconContent = preg_replace_callback('/<svg(.*?)>/', function ($matches) use ($data) {
+                        if (strpos($matches[1], 'fill=') === false) {
+                            // If fill attribute is not present, add it
+                            return '<svg fill="#' . $data['palette']['icon'] . '" ' . $matches[1] . '>';
+                        } else {
+                            // If fill attribute is present, leave it unchanged
+                            return '<svg' . $matches[1] . '>';
+                        }
+                    }, $iconContent);
                 }
 
                 // Icon position styles

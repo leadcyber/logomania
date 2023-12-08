@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <title>FACE CLEANSER</title>
+  <g>
+    <rect x="69.932" y="8.606" width="10.136" height="7" fill="#ffa1b2"/>
+    <rect x="57.591" y="8.606" width="13.091" height="15.394" fill="#ff7b94"/>
+    <path d="M57.136,23.394H70.864a5,5,0,0,1,5,5V39.2a0,0,0,0,1,0,0H52.136a0,0,0,0,1,0,0V28.394A5,5,0,0,1,57.136,23.394Z" fill="#ffa1b2"/>
+    <rect x="45.045" y="38.121" width="37.909" height="81.273" rx="5" fill="#fe4566"/>
+    <rect x="33.364" y="69.803" width="61.273" height="17.909" transform="translate(142.758 14.758) rotate(90)" fill="#ffa1b2"/>
+  </g>
+</svg>

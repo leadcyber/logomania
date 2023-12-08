@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+<g>
+	<g>
+		<polygon fill="#FFB0AA" points="186,96 186,216 220,256 220,336 292,336 292,256 326,216 326,96 		"/>
+	</g>
+	<g>
+		<path fill="#6E83B7" d="M299,10h-43h-43l-37,38v48l10,19l34-19h36h36l14,7.824L326,115l10-19V48L299,10z M292.306,56.128H256
+			h-36.306c-8.845,0-13.335-10.639-7.165-16.976l5.967-6.128c1.883-1.933,4.466-3.024,7.165-3.024H256h30.339
+			c2.698,0,5.282,1.091,7.165,3.024l5.967,6.128C305.641,45.49,301.151,56.128,292.306,56.128z"/>
+	</g>
+	<g>
+		<rect x="232" y="336" fill="#466089" width="48" height="20"/>
+	</g>
+	<g>
+		<rect x="237" y="356" fill="#6E83B7" width="38" height="20"/>
+	</g>
+	<g>
+		<rect x="336" y="56" fill="#466089" width="72" height="32"/>
+	</g>
+	<g>
+		<polygon fill="#466089" points="292,96 220,96 230,72 282,72 		"/>
+	</g>
+	<g>
+		<rect x="408" y="41" fill="#6E83B7" width="32" height="62"/>
+	</g>
+	<g>
+		<rect x="104" y="56" fill="#466089" width="72" height="32"/>
+	</g>
+	<g>
+		<rect x="72" y="41" transform="matrix(-1 -4.502011e-11 4.502011e-11 -1 176 144)" fill="#6E83B7" width="32" height="62"/>
+	</g>
+	<g>
+		<g>
+			<polygon fill="#EDEFF1" points="242,502 270,502 280,460 271,440.001 271,376 241,376 241,440 232,460 			"/>
+		</g>
+		<g>
+			<polygon fill="#D3D3D3" points="242,502 242,478 256,470 270,478 270,502 			"/>
+		</g>
+	</g>
+	<g>
+		<g>
+			<g>
+				<rect x="231" y="283" fill="#FF7B7B" width="10" height="34"/>
+			</g>
+		</g>
+		<g>
+			<g>
+				<rect x="251" y="283" fill="#FF7B7B" width="10" height="34"/>
+			</g>
+		</g>
+		<g>
+			<g>
+				<rect x="271" y="283" fill="#FF7B7B" width="10" height="34"/>
+			</g>
+		</g>
+	</g>
+	<g>
+		<polygon fill="#FF7B7B" points="292,96 292,220 269,243 256,243 243,243 220,220 220,96 		"/>
+	</g>
+</g>
+</svg>

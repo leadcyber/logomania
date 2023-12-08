@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+<g>
+	<g>
+		<path fill="#D3D3D3" d="M112,502c-14.888,0-27-12.112-27-27h14c0,7.168,5.832,13,13,13s13-5.832,13-13s-5.832-13-13-13h-7v-18h14
+			v4.92c11.506,3.091,20,13.612,20,26.08C139,489.888,126.888,502,112,502z"/>
+	</g>
+	<g>
+		<polygon fill="#FFB236" points="360,317.956 360,297.941 416,255.956 416,275.956 		"/>
+	</g>
+	<g>
+		<polygon fill="#FFB236" points="416,317.956 416,297.941 360,255.956 360,275.956 		"/>
+	</g>
+	<g>
+		<polygon fill="#FFB236" points="360,399.941 360,379.926 416,337.941 416,357.941 		"/>
+	</g>
+	<g>
+		<polygon fill="#FFB236" points="416,399.941 416,379.926 360,337.941 360,357.941 		"/>
+	</g>
+	<g>
+		<polygon fill="#FFB236" points="360,481.926 360,461.912 416,419.926 416,439.926 		"/>
+	</g>
+	<g>
+		<polygon fill="#FFB236" points="416,481.926 416,461.912 360,419.926 360,439.926 		"/>
+	</g>
+	<g>
+		<polygon fill="#FFB236" points="203.985,126 224,126 265.985,182 245.985,182 		"/>
+	</g>
+	<g>
+		<polygon fill="#FFB236" points="203.985,182 224,182 265.985,126 245.985,126 		"/>
+	</g>
+	<g>
+		<polygon fill="#FFB236" points="122,126 142.015,126 184,182 164,182 		"/>
+	</g>
+	<g>
+		<polygon fill="#FFB236" points="122,182 142.015,182 184,126 164,126 		"/>
+	</g>
+	<path fill="#FFE352" d="M502,126v-24h-62V10h-24v92h-56V10h-24v92H90l-80,80v24h326v296h24v-82.059l56,0.015V502h24V206h62v-24h-62
+		v-56H502z M46,182l56-56l-0.015,56H46z M122,182v-56h61.985l-0.015,56H122z M203.985,182v-56H266l-0.015,56H203.985z M286,182v-56
+		h50v56H286z M416,399.941h-56v-61.985l56,0.015V399.941z M416,317.956h-56v-61.985l56,0.015V317.956z M416,235.971h-56V206h56
+		V235.971z M416,182h-56v-56h56V182z"/>
+	<g>
+		<polygon fill="#6E83B7" points="316,236 460,236 460,72 356,72 316,146 		"/>
+	</g>
+	<g>
+		<polygon fill="#80D6FB" points="336,151 367.924,92 440,92 440,151 		"/>
+	</g>
+	<g>
+		<rect x="101.992" y="206" fill="#D3D3D3" width="20" height="187"/>
+	</g>
+	<g>
+		<circle fill="#FFB0AA" cx="112" cy="418" r="27"/>
+	</g>
+	<g>
+		<circle fill="#FF7B7B" cx="112" cy="418" r="10"/>
+	</g>
+</g>
+</svg>

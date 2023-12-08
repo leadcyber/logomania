@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+<g>
+	<g>
+		<rect x="51" y="67" fill="#6E83B7" width="90" height="32"/>
+	</g>
+	<g>
+		<rect x="-19" y="137" transform="matrix(-1.836970e-16 1 -1 -1.836970e-16 204 102)" fill="#6E83B7" width="140" height="32"/>
+	</g>
+	<g>
+		<polygon fill="#466089" points="163,72 282,269 227,269 210,286 125,72 		"/>
+	</g>
+	<g>
+		<g>
+			<g>
+				<polygon fill="#FFE352" points="210,286 210,363 462,363 462,239 431,239 431,269 227,269 				"/>
+			</g>
+			<g>
+				<polygon fill="#6E83B7" points="255,269 295,85 431,85 431,269 				"/>
+			</g>
+			<g>
+				<polygon fill="#80D6FB" points="279.815,249 311,105 411,105 411,249 				"/>
+			</g>
+			<g>
+				<g>
+					<g>
+						<rect x="301" y="299" fill="#FFB236" width="10" height="34"/>
+					</g>
+				</g>
+				<g>
+					<g>
+						<rect x="321" y="299" fill="#FFB236" width="10" height="34"/>
+					</g>
+				</g>
+				<g>
+					<g>
+						<rect x="341" y="299" fill="#FFB236" width="10" height="34"/>
+					</g>
+				</g>
+				<g>
+					<g>
+						<rect x="361" y="299" fill="#FFB236" width="10" height="34"/>
+					</g>
+				</g>
+			</g>
+		</g>
+		<g>
+			<path fill="#6E83B7" d="M462,443H210c-22.091,0-40-17.909-40-40v0c0-22.091,17.909-40,40-40h252c22.091,0,40,17.909,40,40v0
+				C502,425.091,484.091,443,462,443z"/>
+		</g>
+		<g>
+			<path fill="#466089" d="M210,423c-11.028,0-20-8.972-20-20s8.972-20,20-20h252c11.028,0,20,8.972,20,20s-8.972,20-20,20H210z"/>
+		</g>
+		<g>
+			<g>
+				<circle fill="#6E83B7" cx="448" cy="403" r="14"/>
+			</g>
+			<g>
+				<circle fill="#6E83B7" cx="392" cy="403" r="14"/>
+			</g>
+			<g>
+				<circle fill="#6E83B7" cx="336" cy="403" r="14"/>
+			</g>
+			<g>
+				<circle fill="#6E83B7" cx="280" cy="403" r="14"/>
+			</g>
+			<g>
+				<circle fill="#6E83B7" cx="224" cy="403" r="14"/>
+			</g>
+		</g>
+	</g>
+	<g>
+		<circle fill="#EDEFF1" cx="141" cy="83" r="30"/>
+	</g>
+	<g>
+		<circle fill="#D3D3D3" cx="141" cy="83" r="16"/>
+	</g>
+	<g>
+		<circle fill="#EDEFF1" cx="51" cy="83" r="30"/>
+	</g>
+	<g>
+		<circle fill="#D3D3D3" cx="51" cy="83" r="16"/>
+	</g>
+	<g>
+		<rect x="10" y="223" fill="#FFE352" width="82" height="32"/>
+	</g>
+	<g>
+		<rect x="10" y="275" fill="#FFE352" width="82" height="100"/>
+	</g>
+	<g>
+		<polygon fill="#EDEFF1" points="67,375 35,375 35,421 51,443 67,421 		"/>
+	</g>
+	<g>
+		<rect x="16" y="255" fill="#FFB236" width="70" height="20"/>
+	</g>
+	<g>
+		<polygon fill="#D3D3D3" points="65,419 51,411 37,419 37,423.75 51,443 65,423.75 		"/>
+	</g>
+</g>
+</svg>

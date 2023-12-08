@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+<g>
+	<g>
+		<rect x="64" y="71" fill="#6E83B7" width="16" height="216"/>
+	</g>
+	<g>
+		<polygon fill="#466089" points="72,71 102,71 282,297 227,297 210,314 72,101 		"/>
+	</g>
+	<g>
+		<g>
+			<g>
+				<polygon fill="#FFE352" points="210,314 210,391 462,391 462,267 431,267 431,297 227,297 				"/>
+			</g>
+			<g>
+				<polygon fill="#6E83B7" points="255,297 295,113 431,113 431,297 				"/>
+			</g>
+			<g>
+				<polygon fill="#80D6FB" points="279.815,277 311,133 411,133 411,277 				"/>
+			</g>
+			<g>
+				<g>
+					<g>
+						<rect x="301" y="327" fill="#FFB236" width="10" height="34"/>
+					</g>
+				</g>
+				<g>
+					<g>
+						<rect x="321" y="327" fill="#FFB236" width="10" height="34"/>
+					</g>
+				</g>
+				<g>
+					<g>
+						<rect x="341" y="327" fill="#FFB236" width="10" height="34"/>
+					</g>
+				</g>
+				<g>
+					<g>
+						<rect x="361" y="327" fill="#FFB236" width="10" height="34"/>
+					</g>
+				</g>
+			</g>
+		</g>
+		<g>
+			<path fill="#6E83B7" d="M462,471H210c-22.091,0-40-17.909-40-40v0c0-22.091,17.909-40,40-40h252c22.091,0,40,17.909,40,40v0
+				C502,453.091,484.091,471,462,471z"/>
+		</g>
+		<g>
+			<path fill="#466089" d="M210,451c-11.028,0-20-8.972-20-20s8.972-20,20-20h252c11.028,0,20,8.972,20,20s-8.972,20-20,20H210z"/>
+		</g>
+		<g>
+			<g>
+				<circle fill="#6E83B7" cx="448" cy="431" r="14"/>
+			</g>
+			<g>
+				<circle fill="#6E83B7" cx="392" cy="431" r="14"/>
+			</g>
+			<g>
+				<circle fill="#6E83B7" cx="336" cy="431" r="14"/>
+			</g>
+			<g>
+				<circle fill="#6E83B7" cx="280" cy="431" r="14"/>
+			</g>
+			<g>
+				<circle fill="#6E83B7" cx="224" cy="431" r="14"/>
+			</g>
+		</g>
+	</g>
+	<g>
+		<circle fill="#EDEFF1" cx="72" cy="71" r="30"/>
+	</g>
+	<g>
+		<circle fill="#D3D3D3" cx="72" cy="71" r="16"/>
+	</g>
+	<g>
+		<rect x="57" y="273" fill="#D3D3D3" width="30" height="20"/>
+	</g>
+	<g>
+		<circle fill="#EDEFF1" cx="72" cy="349" r="62"/>
+	</g>
+</g>
+</svg>

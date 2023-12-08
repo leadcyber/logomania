@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <title>LIPSTICK</title>
+  <g>
+    <path d="M71.5,48.636h-15V15.778a3.114,3.114,0,0,1,1.075-2.362l5.717-4.909A4.99,4.99,0,0,1,71.5,12.445Z" fill="#ff7b94"/>
+    <rect x="53.553" y="47.567" width="20.893" height="18.614" fill="#81a1b1"/>
+    <rect x="51.627" y="64.738" width="24.746" height="8.807" fill="#add3d8"/>
+    <path d="M79.182,117.749a40.554,40.554,0,0,1-30.364,0V71.738H79.182Z" fill="#5a7983"/>
+  </g>
+</svg>
