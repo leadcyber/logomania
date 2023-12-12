@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+<g>
+	<g>
+		
+			<rect x="242.438" y="219.5" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -77.1747 262.6838)" fill="#466089" width="72.125" height="10"/>
+	</g>
+	<g>
+		<g>
+			<path fill="#6E83B7" d="M276,78l-40,184h176V78H276z M392,242H260.815l31.304-144H392V242z"/>
+		</g>
+	</g>
+	<g>
+		<polygon fill="#FFE352" points="412,223 412,242 202,242 180,264 180,378 502,378 502,223 		"/>
+	</g>
+	<g>
+		<circle fill="#6E83B7" cx="432" cy="378" r="70"/>
+	</g>
+	<g>
+		<circle fill="#466089" cx="432" cy="378" r="37"/>
+	</g>
+	<g>
+		<g>
+			<path fill="#466089" d="M218.387,308.201l31.113,31.113c6.248,6.248,16.379,6.248,22.627,0s6.248-16.379,0-22.627l-31.113-31.113
+				L218.387,308.201z"/>
+		</g>
+		<g>
+			<polygon fill="#466089" points="188.912,233.471 138,182.559 138,227.814 166.284,256.098 			"/>
+		</g>
+		<g>
+			
+				<rect x="193.65" y="233.993" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -131.8622 223.3279)" fill="#D3D3D3" width="20" height="73.685"/>
+		</g>
+		<g>
+			<circle fill="#6E83B7" cx="138" cy="210" r="27"/>
+		</g>
+		<g>
+			<polygon fill="#FFB236" points="40,318 10,318 22,296 40,296 			"/>
+		</g>
+		<g>
+			<polygon fill="#FFE352" points="28,318 113.999,318 138,270 138,152 114,128 84,128 84,242 66,242 28,318 			"/>
+		</g>
+	</g>
+	<g>
+		<circle fill="#6E83B7" cx="220" cy="378" r="70"/>
+	</g>
+	<g>
+		<circle fill="#466089" cx="220" cy="378" r="37"/>
+	</g>
+	<g>
+		<polygon fill="#466089" points="392,121 366,121 347,242 392,242 		"/>
+	</g>
+	<g>
+		<rect x="440" y="183" fill="#466089" width="34" height="20"/>
+	</g>
+	<g>
+		<rect x="412" y="203" fill="#FFB236" width="90" height="20"/>
+	</g>
+	<g>
+		<path fill="#6E83B7" d="M489.462,78.142L475.32,64l-22.462,22.462C449.107,90.213,447,95.3,447,100.604V183h20v-82.396
+			L489.462,78.142z"/>
+	</g>
+	<g>
+		<circle fill="#FFB0AA" cx="304" cy="199" r="12"/>
+	</g>
+</g>
+</svg>

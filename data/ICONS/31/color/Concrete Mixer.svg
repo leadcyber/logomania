@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+<g>
+	<g>
+		<rect x="396" y="185" fill="#466089" width="28" height="40"/>
+	</g>
+	<g>
+		<rect x="456" y="193" fill="#EDEFF1" width="16" height="24"/>
+	</g>
+	<g>
+		<rect x="10" y="193" transform="matrix(-1 -1.562940e-11 1.562940e-11 -1 66 410)" fill="#EDEFF1" width="46" height="24"/>
+	</g>
+	<g>
+		<rect x="417" y="190" transform="matrix(-1.836970e-16 1 -1 -1.836970e-16 692 -282)" fill="#FFB0AA" width="140" height="30"/>
+	</g>
+	<g>
+		<rect x="424" y="99" fill="#6E83B7" width="32" height="340"/>
+	</g>
+	<g>
+		<rect x="400" y="439" fill="#466089" width="80" height="32"/>
+	</g>
+	<g>
+		<rect x="88" y="185" fill="#466089" width="28" height="40"/>
+	</g>
+	<g>
+		<path fill="#FFB236" d="M356,81H156c-5.523,0-10-4.477-10-10V51c0-5.523,4.477-10,10-10h200c5.523,0,10,4.477,10,10v20
+			C366,76.523,361.523,81,356,81z"/>
+	</g>
+	<g>
+		<path fill="#FFB236" d="M396,225H116c-5.523,0-10-4.477-10-10v-20c0-5.523,4.477-10,10-10h280c5.523,0,10,4.477,10,10v20
+			C406,220.523,401.523,225,396,225z"/>
+	</g>
+	<g>
+		<polygon fill="#FFE352" points="356,81 156,81 116,185 396,185 		"/>
+	</g>
+	<g>
+		<path fill="#FFE352" d="M355.999,385H156c-22.091,0-40-17.909-40-40V225h280l-0.001,120C395.999,367.092,378.09,385,355.999,385z"
+			/>
+	</g>
+	<g>
+		<rect x="56" y="99" fill="#6E83B7" width="32" height="340"/>
+	</g>
+	<g>
+		<rect x="32" y="439" fill="#466089" width="80" height="32"/>
+	</g>
+	<g>
+		<g>
+			<g>
+				<rect x="221" y="314" fill="#FFB236" width="10" height="34"/>
+			</g>
+		</g>
+		<g>
+			<g>
+				<rect x="241" y="314" fill="#FFB236" width="10" height="34"/>
+			</g>
+		</g>
+		<g>
+			<g>
+				<rect x="261" y="314" fill="#FFB236" width="10" height="34"/>
+			</g>
+		</g>
+		<g>
+			<g>
+				<rect x="281" y="314" fill="#FFB236" width="10" height="34"/>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+<g>
+	<g>
+		<rect x="40" y="116" fill="#466089" width="50" height="100"/>
+	</g>
+	<g>
+		<rect x="218" y="246" fill="#466089" width="100" height="50"/>
+	</g>
+	<g>
+		<rect x="402" y="326" fill="#466089" width="50" height="100"/>
+	</g>
+	<g>
+		<rect x="452" y="296" fill="#6E83B7" width="50" height="160"/>
+	</g>
+	<g>
+		<rect x="228" y="312" transform="matrix(-1.836970e-16 1 -1 -1.836970e-16 604 68)" fill="#EDEFF1" width="80" height="48"/>
+	</g>
+	<g>
+		<rect x="268" y="352" transform="matrix(-1 -1.224647e-16 1.224647e-16 -1 670 752)" fill="#EDEFF1" width="134" height="48"/>
+	</g>
+	<g>
+		<path fill="#80D6FB" d="M40,206H30c-11.046,0-20-8.954-20-20v-40c0-11.046,8.954-20,20-20h10V206z"/>
+	</g>
+	<g>
+		<polygon fill="#EDEFF1" points="400,166 90,166 40,116 40,56 400,56 		"/>
+	</g>
+	<g>
+		<rect x="90" y="166" fill="#6E83B7" width="310" height="80"/>
+	</g>
+	<g>
+		<circle fill="#D3D3D3" cx="268" cy="376" r="37"/>
+	</g>
+	<g>
+		<circle fill="#EDEFF1" cx="268" cy="376" r="20"/>
+	</g>
+	<g>
+		<g>
+			<rect x="302" y="189" fill="#466089" width="10" height="34"/>
+		</g>
+		<g>
+			<rect x="322" y="189" fill="#466089" width="10" height="34"/>
+		</g>
+		<g>
+			<rect x="342" y="189" fill="#466089" width="10" height="34"/>
+		</g>
+		<g>
+			<rect x="362" y="189" fill="#466089" width="10" height="34"/>
+		</g>
+	</g>
+</g>
+</svg>

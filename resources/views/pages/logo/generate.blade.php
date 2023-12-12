@@ -81,7 +81,7 @@
                                 '<div id="svg-' + index + '" class="mb-4 shadow rounded-3 overflow-hidden svg-wrapper">' + svg + 
                                     '<div class="svg-btn-group d-flex">' + 
                                         '<button class="btn btn-icon btn-primary-transparent rounded-pill btn-wave me-2 btn-favorite" onclick="toggleFavorite(this, ' + index + ');"><i class="ri-heart-line"></i></button>' +
-                                        '<button class="btn btn-icon btn-secondary-transparent rounded-pill btn-wave"><i class="ri-edit-line"></i></button>' +
+                                        '<a href="/logo/edit/' + index + '" class="btn btn-icon btn-secondary-transparent rounded-pill btn-wave"><i class="ri-edit-line"></i></a>' +
                                     '</div>' + 
                                 '</div>';
                         })

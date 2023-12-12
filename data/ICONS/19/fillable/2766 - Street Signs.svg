@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="6.82666in" height="6.82666in" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 6.82666 6.82666"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil0 {fill:none}
+    .fil1 {fill:#7A7A7A;fill-rule:nonzero}
+    .fil3 {fill:#8C8D8D;fill-rule:nonzero}
+    .fil2 {fill:#9F9F9F;fill-rule:nonzero}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_339778848">
+   <rect id="_339779328" class="fil0" width="6.82666" height="6.82666"/>
+   <rect id="_339779016" class="fil0" x="0.853331" y="0.853331" width="5.12" height="5.12"/>
+  </g>
+  <polygon class="fil1" points="3.59828,1.4631 5.23812,1.4631 5.28406,1.4631 5.31028,1.50977 5.51295,1.87039 5.54667,1.93039 5.51295,1.99039 5.31028,2.35101 5.28406,2.39768 5.23812,2.39768 3.59828,2.39768 3.51072,2.39768 3.51072,2.29101 3.51072,1.56977 3.51072,1.4631 "/>
+  <polygon class="fil2" points="3.61739,2.59246 5.61513,2.59246 5.67109,2.59246 5.70305,2.63913 5.94994,2.99974 5.99102,3.05974 5.94994,3.11974 5.70305,3.48037 5.67109,3.52704 5.61513,3.52704 3.61739,3.52704 3.51072,3.52704 3.51072,3.42037 3.51072,2.69913 3.51072,2.59246 "/>
+  <polygon class="fil2" points="1.21153,1.4631 3.20928,1.4631 3.31594,1.4631 3.31594,1.56977 3.31594,2.29101 3.31594,2.39768 3.20928,2.39768 1.21153,2.39768 1.15557,2.39768 1.12361,2.35101 0.876717,1.99039 0.835642,1.93039 0.876717,1.87039 1.12361,1.50977 1.15557,1.4631 "/>
+  <path class="fil3" d="M3.2797 0.959992l0.267268 0c0.0385787,0 0.0698543,0.0477598 0.0698543,0.106669l0 4.69334c0,0.0589094 -0.0312756,0.106669 -0.0698543,0.106669l-0.267268 0c-0.0385787,0 -0.0698583,-0.0477598 -0.0698583,-0.106669l0 -4.69334c0,-0.0589094 0.0312795,-0.106669 0.0698583,-0.106669z"/>
+ </g>
+</svg>

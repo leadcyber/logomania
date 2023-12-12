@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <title>POWDER</title>
+  <g>
+    <g>
+      <path d="M66.018,68.988H94.533a0,0,0,0,1,0,0V80.407a5,5,0,0,1-5,5H71.018a5,5,0,0,1-5-5V68.988A0,0,0,0,1,66.018,68.988Z" transform="translate(-31.075 79.374) rotate(-45)" fill="#ffc5ce"/>
+      <rect x="28.006" y="14.766" width="47.882" height="68.206" rx="5" transform="translate(-19.341 51.045) rotate(-45)" fill="#ffa1b2"/>
+      <rect x="19.428" y="35.853" width="47.882" height="8.878" transform="translate(-15.788 42.468) rotate(-45)" fill="#ff7b94"/>
+    </g>
+    <circle cx="88.782" cy="97.072" r="1.75" fill="#f2e4e4"/>
+    <circle cx="99.987" cy="116.353" r="1.75" fill="#f2e4e4"/>
+    <circle cx="101.737" cy="96.389" r="1.75" fill="#f2e4e4"/>
+    <circle cx="93.184" cy="86.572" r="1.75" fill="#f2e4e4"/>
+    <circle cx="113.275" cy="96.389" r="1.75" fill="#f2e4e4"/>
+    <circle cx="112.328" cy="105.686" r="1.75" fill="#f2e4e4"/>
+    <circle cx="103.18" cy="107.436" r="1.75" fill="#f2e4e4"/>
+    <circle cx="96.684" cy="102.186" r="1.75" fill="#f2e4e4"/>
+    <circle cx="87.669" cy="107.392" r="1.75" fill="#f2e4e4"/>
+    <circle cx="111.525" cy="88.322" r="1.75" fill="#f2e4e4"/>
+    <circle cx="101.737" cy="86.572" r="1.75" fill="#f2e4e4"/>
+  </g>
+</svg>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="6.82666in" height="6.82666in" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 6.82666 6.82666"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil0 {fill:none}
+    .fil2 {fill:#414141}
+    .fil1 {fill:#888888}
+    .fil4 {fill:#8C8D8D}
+    .fil3 {fill:#CFCFD0}
+    .fil5 {fill:#767676;fill-rule:nonzero}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <rect class="fil0" width="6.82666" height="6.82666"/>
+  <g id="_485880528">
+   <path id="_485881656" class="fil1" d="M2.72997 5.81652l0 -2.76222 -0.26985 -0.920142 0 -1.28082 1.1421 0 0.764315 0 0 1.28082 -0.239323 0.920142 0 2.76222c-0.478571,0.225567 -0.942409,0.191921 -1.39724,0z"/>
+   <polygon id="_485881848" class="fil2" points="2.46012,1.24297 2.46012,0.853331 3.60222,0.853331 4.36654,0.853331 4.36654,1.24297 "/>
+   <polygon id="_485881896" class="fil3" points="2.46012,1.59004 2.46012,1.33364 4.36654,1.33364 4.36654,1.59004 "/>
+   <polygon id="_485881536" class="fil3" points="2.72997,5.33621 2.72997,5.23787 4.12722,5.23787 4.12722,5.33621 "/>
+   <path id="_485881200" class="fil2" d="M2.72997 5.81652l0 -0.240835 1.39725 0 0 0.240835c-0.478571,0.225567 -0.942409,0.191921 -1.39725,0z"/>
+   <circle id="_485881392" class="fil4" cx="3.44723" cy="3.23792" r="0.216062"/>
+   <g>
+    <polygon id="_485881488" class="fil5" points="2.6283,1.33364 2.6283,1.59004 2.57826,1.59004 2.57826,1.33364 "/>
+    <polygon id="_485881056" class="fil5" points="2.79031,1.33364 2.79031,1.59004 2.74027,1.59004 2.74027,1.33364 "/>
+    <polygon id="_485881464" class="fil5" points="2.95232,1.33364 2.95232,1.59004 2.90228,1.59004 2.90228,1.33364 "/>
+    <polygon id="_485881080" class="fil5" points="3.11433,1.33364 3.11433,1.59004 3.06429,1.59004 3.06429,1.33364 "/>
+    <polygon id="_485880888" class="fil5" points="3.27634,1.33364 3.27634,1.59004 3.2263,1.59004 3.2263,1.33364 "/>
+    <polygon id="_485881224" class="fil5" points="3.43835,1.33364 3.43835,1.59004 3.38831,1.59004 3.38831,1.33364 "/>
+    <polygon id="_485880456" class="fil5" points="3.60035,1.33364 3.60035,1.59004 3.55031,1.59004 3.55031,1.33364 "/>
+    <polygon id="_485880576" class="fil5" points="3.76237,1.33364 3.76237,1.59004 3.71233,1.59004 3.71233,1.33364 "/>
+    <polygon id="_485880504" class="fil5" points="3.92437,1.33364 3.92437,1.59004 3.87433,1.59004 3.87433,1.33364 "/>
+    <polygon id="_485880768" class="fil5" points="4.08639,1.33364 4.08639,1.59004 4.03634,1.59004 4.03634,1.33364 "/>
+    <polygon id="_485880216" class="fil5" points="4.24839,1.33364 4.24839,1.59004 4.19835,1.59004 4.19835,1.33364 "/>
+   </g>
+  </g>
+ </g>
+</svg>

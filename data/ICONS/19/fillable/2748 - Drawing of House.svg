@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="6.82666in" height="6.82666in" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 6.82666 6.82666"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil3 {fill:none}
+    .fil4 {fill:#959595}
+    .fil2 {fill:#ABABAB}
+    .fil0 {fill:#DCDDDD}
+    .fil1 {fill:#F9F9F9}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <path class="fil0" d="M0.972402 0.972201l4.88185 0c0.0657598,0 0.119075,0.053315 0.119075,0.119075l0 2.7386c0,0.0657598 -0.053315,0.119071 -0.119075,0.119071 -2.53967,0 -2.34013,0 -4.88185,0 -0.0657598,0 -0.119071,-0.053311 -0.119071,-0.119071l0 -2.7386c0,-0.0657598 0.053311,-0.119075 0.119071,-0.119075z"/>
+  <path class="fil1" d="M1.02 1.13887l0 2.64342c1.59556,0 3.19111,0 4.78667,0l0 -2.64342 -4.78667 0z"/>
+  <path class="fil2" d="M4.11191 3.94895l0.63339 1.74628c0.0223504,0.0616496 -0.00950787,0.129748 -0.0711575,0.152094 -0.0616496,0.0223504 -0.129748,-0.00950787 -0.152094,-0.0711575l-0.662748 -1.82721 -0.891945 0 -0.662748 1.82721c-0.0223504,0.0616496 -0.0904449,0.0935079 -0.152098,0.0711575 -0.0616496,-0.0223465 -0.0935079,-0.0904449 -0.0711575,-0.152094l0.63339 -1.74628c-7.11787,0 8.2805,0 1.39717,0z"/>
+  <g id="_339684784">
+   <rect id="_339684520" class="fil3" width="6.82666" height="6.82666"/>
+   <rect id="_339684904" class="fil3" x="0.853331" y="0.853331" width="5.12" height="5.12"/>
+  </g>
+  <polygon class="fil4" points="4.28161,2.47269 4.12775,2.34637 4.12775,3.31483 4.12775,3.4339 4.00868,3.4339 2.81797,3.4339 2.6989,3.4339 2.6989,3.31483 2.6989,2.34637 2.54504,2.47269 2.39434,2.28944 3.33798,1.5147 3.41333,1.45284 3.48868,1.5147 4.43231,2.28944 "/>
+ </g>
+</svg>

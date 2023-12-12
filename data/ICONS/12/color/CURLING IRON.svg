@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <title>CURLING IRON</title>
+  <g>
+    <rect x="97.335" y="22.827" width="13.091" height="10.362" transform="translate(50.231 -65.251) rotate(45)" fill="#81a1b1"/>
+    <path d="M33.53,111.47l-3.12,3.13a5.016,5.016,0,0,1-7.08,0l-6.04-6.05a5,5,0,0,1,0-7.07l3.13-3.12Z" fill="#81a1b1"/>
+    <rect x="25.596" y="92.315" width="9.419" height="18.54" transform="translate(-62.955 51.182) rotate(-45)" fill="#f2e4e4"/>
+    <rect x="32.256" y="85.655" width="9.419" height="18.54" transform="translate(-56.296 53.942) rotate(-45.001)" fill="#81a1b1"/>
+    <rect x="38.916" y="78.995" width="9.419" height="18.54" transform="translate(-49.635 56.699) rotate(-45)" fill="#f2e4e4"/>
+    <polygon points="107.16 37.84 61.13 83.87 53.51 91.49 40.4 78.38 40.41 78.37 48.02 70.76 50.62 68.15 50.63 68.14 62.98 55.8 94.05 24.73 107.16 37.84" fill="#ffd18b"/>
+    <path d="M48.5,75.449,66.982,11.938a8.444,8.444,0,0,1,5.785,10.8l-17.585,59.4Z" fill="#ffb22a"/>
+    <polygon points="64.22 86.96 53.51 91.49 40.4 78.38 40.41 78.37 44.93 67.67 64.22 86.96" fill="#81a1b1"/>
+  </g>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <title>EYESHADOW</title>
+  <g>
+    <g>
+      <rect x="19.591" y="58.151" width="88.727" height="12.849" fill="#525e63"/>
+      <path d="M10.546,68.075H117.454a0,0,0,0,1,0,0v39.485a5,5,0,0,1-5,5H15.546a5,5,0,0,1-5-5V68.075a0,0,0,0,1,0,0Z" fill="#4a555a"/>
+      <rect x="17.636" y="76.682" width="17.413" height="27.273" rx="5" fill="#ff7b94"/>
+      <rect x="42.741" y="76.682" width="17.414" height="27.273" rx="5" fill="#ffd18b"/>
+      <rect x="67.846" y="76.682" width="17.414" height="27.273" rx="5" fill="#ed9603"/>
+      <rect x="92.95" y="76.682" width="17.413" height="27.273" rx="5" fill="#ff1200"/>
+    </g>
+    <path d="M15.546,15.439h96.818a5,5,0,0,1,5,5V61.075a0,0,0,0,1,0,0H10.546a0,0,0,0,1,0,0V20.439A5,5,0,0,1,15.546,15.439Z" fill="#4a555a"/>
+    <rect x="48.136" y="-8.151" width="31.636" height="92.818" transform="translate(102.212 -25.697) rotate(90)" fill="#add3d8"/>
+  </g>
+</svg>
