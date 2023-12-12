@@ -198,15 +198,9 @@ class LogoController extends Controller
             }
             $logos = [];
             foreach ($combinations as $index => $combination) {
-                $text = $logoNames[array_rand($logoNames)];
+                $text = $logoNames[$index % count($logoNames)];
                 $combination['text'] = $text;
                 $logos[] = $combination;
-                // if ($text) {
-                    // $logoSVG = $this->generateLogo($index, $combination, $text);
-                    // if ($logoSVG) {
-                    //     $logos[] = $logoSVG;
-                    // }
-                // }
             }
             session(['logos' => $logos]);
         }
@@ -214,11 +208,126 @@ class LogoController extends Controller
         return view('pages.logo.generate');
     }
 
+    public function edit(Request $request, $id) {
+        $logos = session('logos', null);
+        if (empty($logos)) {
+            return redirect('pages.logo.topic');
+        }
+        $combination = $logos[$id];
+        session(['combination'=> $combination]);
+        $svg = $this->generateSVG($logos[$id]);
+
+        return view('pages.logo.edit', compact('svg'));
+    }
+
     public function generateSVGs(Request $request) {
         $page = $request->get('page', 1);
         $itemsPerPage = $request->get('itemsPerPage', 9);
 
         $logos = session('logos', null);
+        $totalItems = count($logos);
+        $svgs = [];
+        if ($logos) {
+            $startIndex = ($page - 1) * $itemsPerPage;
+            $logos = array_slice($logos, $startIndex, $itemsPerPage);
+            foreach ($logos as $index => $logo) {
+                $svg = $this->generateSVG($logo);
+                if ($svg) $svgs[] = $svg;
+            }
+        }
+
+        return json_encode([
+            "success" => true,
+            "message" => "",
+            "svgs" => $svgs,
+            "total" => $totalItems,
+        ]);
+    }
+
+    public function generateSVGsFont(Request $request) {
+        $page = $request->get('page', 1);
+        $itemsPerPage = $request->get('itemsPerPage', 9);
+        $combination = session('combination', null);
+
+        if (!$combination) return redirect()->route('logo.generate');
+
+        $logos = [];
+        $fonts = Font::where('family_id', $combination['family_id'])->get()->toArray();
+        foreach ($fonts as $font) {
+            $logo = $combination;
+            $logo['font_id'] = $font['id'];
+            $logo['font'] = $font;
+            $logos[] = $logo;
+        }
+        $totalItems = count($logos);
+        $svgs = [];
+        if ($logos) {
+            $startIndex = ($page - 1) * $itemsPerPage;
+            $logos = array_slice($logos, $startIndex, $itemsPerPage);
+            foreach ($logos as $index => $logo) {
+                $svg = $this->generateSVG($logo);
+                if ($svg) $svgs[] = $svg;
+            }
+        }
+
+        return json_encode([
+            "success" => true,
+            "message" => "",
+            "svgs" => $svgs,
+            "total" => $totalItems,
+        ]);
+    }
+
+    public function generateSVGsIcon(Request $request) {
+        $page = $request->get('page', 1);
+        $itemsPerPage = $request->get('itemsPerPage', 9);
+        $combination = session('combination', null);
+
+        if (!$combination) return redirect()->route('logo.generate');
+
+        $logos = [];
+        $icons = Icon::where('family_id', $combination['family_id'])->get()->toArray();
+        foreach ($icons as $icon) {
+            $logo = $combination;
+            $logo['icon_id'] = $icon['id'];
+            $logo['icon'] = $icon;
+            $logo['type'] = 'text_icon_top';
+            $logos[] = $logo;
+        }
+        $totalItems = count($logos);
+        $svgs = [];
+        if ($logos) {
+            $startIndex = ($page - 1) * $itemsPerPage;
+            $logos = array_slice($logos, $startIndex, $itemsPerPage);
+            foreach ($logos as $index => $logo) {
+                $svg = $this->generateSVG($logo);
+                if ($svg) $svgs[] = $svg;
+            }
+        }
+
+        return json_encode([
+            "success" => true,
+            "message" => "",
+            "svgs" => $svgs,
+            "total" => $totalItems,
+        ]);
+    }
+
+    public function generateSVGsPalette(Request $request) {
+        $page = $request->get('page', 1);
+        $itemsPerPage = $request->get('itemsPerPage', 9);
+        $combination = session('combination', null);
+
+        if (!$combination) return redirect()->route('logo.generate');
+
+        $logos = [];
+        $palettes = Palette::get()->toArray();
+        foreach ($palettes as $palette) {
+            $logo = $combination;
+            $logo['palette_id'] = $palette['id'];
+            $logo['palette'] = $palette;
+            $logos[] = $logo;
+        }
         $totalItems = count($logos);
         $svgs = [];
         if ($logos) {

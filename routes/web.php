@@ -48,6 +48,10 @@ Route::get('/logo/topic', [LogoController::class, 'topic'])->name('logo.topic');
 Route::post('/logo/topic', [LogoController::class, 'storeTopic'])->name('logo.topic');
 Route::get('/logo/generate', [LogoController::class, 'generate'])->name('logo.generate');
 Route::get('/logo/svgs', [LogoController::class, 'generateSVGs'])->name('logo.svgs');
+Route::get('/logo/svgs/font', [LogoController::class, 'generateSVGsFont'])->name('logo.svgs.font');
+Route::get('/logo/svgs/icon', [LogoController::class, 'generateSVGsIcon'])->name('logo.svgs.icon');
+Route::get('/logo/svgs/palette', [LogoController::class, 'generateSVGsPalette'])->name('logo.svgs.palette');
+Route::get('/logo/edit/{id}', [LogoController::class, 'edit'])->name('logo.edit');
 
 // Private routes
 Route::middleware(['auth', 'verified'])->group(function () {
