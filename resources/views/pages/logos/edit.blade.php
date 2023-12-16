@@ -179,7 +179,9 @@
                 api: "{{ route('logos.render') }}",
                 selected: 0,
                 page: 1,
-                itemsPerPage: 9
+                itemsPerPage: 9,
+                fetch: fetchLogos,
+                items: [],
             },
             font: {
                 api: "{{ route('fonts.rendered') }}",
@@ -213,7 +215,6 @@
             categoryValues[activeCategory].page++;
             if (categoryValues[activeCategory].fetch)
                 categoryValues[activeCategory].fetch();
-            else fetchSVGs(activeCategory);
         });
 
         function toggleCategories() {
@@ -221,38 +222,43 @@
             $('.subcategory[parent=' + activeCategory + ']').show();
         }
 
-        function fetchSVGs(category) {
-            var categoryValue = categoryValues[category];
-            if (categoryValue.count > 0 && categoryValue.count >= categoryValue.total) return;
+        function fetchLogos() {
+            var ideaCategory = categoryValues.idea;
+            if (ideaCategory.count > 0 && ideaCategory.count >= ideaCategory.total) return;
 
             var skeleton = '<div class="mb-4 shadow rounded-3 overflow-hidden svg-wrapper skeleton"></div>';
-            var wrapperClass = '.subcategory[parent=' + category + '] .items-wrapper';
-            $(wrapperClass).append(skeleton.repeat(categoryValue.itemsPerPage));
-            $.get(categoryValue.api + "?page=" + categoryValue.page + "&itemsPerPage=" + categoryValue.itemsPerPage)
+            var wrapperClass = '.subcategory[parent=idea] .items-wrapper';
+            $(wrapperClass).append(skeleton.repeat(ideaCategory.itemsPerPage));
+            $.get(ideaCategory.api + "?sort=favorite&page=" + ideaCategory.page + "&itemsPerPage=" + ideaCategory.itemsPerPage)
                 .then(res => {
                     res = JSON.parse(res);
-                    if (res.svgs && res.svgs.length > 0) {
+                    if (res.logos && res.logos.length > 0) {
                         var html = "";
-                        var svgs = res.svgs;
+                        var logos = res.logos;
 
-                        svgs.forEach((svg, i) => {
-                            var index = categoryValue.count + i;
+                        logos.sort((a, b) => b.favorite - a.favorite);
+
+                        logos.forEach((logo, i) => {
                             html +=
-                                '<div id="svg-' + index +
-                                '" class="mb-4 shadow rounded-3 overflow-hidden svg-wrapper">' + svg +
-                                '<div class="svg-btn-group d-flex">' +
-                                '<button class="btn btn-icon btn-primary-transparent rounded-pill btn-wave me-2 btn-favorite" onclick="toggleFavorite(this, ' +
-                                index + ');"><i class="ri-heart-line"></i></button>' +
-                                '<button class="btn btn-icon btn-secondary-transparent rounded-pill btn-wave"><i class="ri-edit-line"></i></button>' +
-                                '</div>' +
+                                '<div id="svg-' + logo.id + '" class="idea mb-4 shadow rounded-3 overflow-hidden svg-wrapper ' + (logo.favorite ? 'favorite' : '') + '" data-id="' + logo.id + '">' + 
+                                    '<img src="' + logo.svg + '" />' + 
+                                    '<div class="svg-btn-group d-flex">' +
+                                        '<button class="btn btn-icon btn-primary-transparent rounded-pill btn-wave me-2 btn-favorite"><i class="ri-heart-line"></i></button>' +
+                                        // '<button class="btn btn-icon btn-secondary-transparent rounded-pill btn-wave"><i class="ri-edit-line"></i></button>' +
+                                    '</div>' +
                                 '</div>';
                         })
 
                         $(wrapperClass + ' .skeleton').remove();
                         $(wrapperClass).append(html);
 
-                        categoryValue.count += svgs.length;
-                        categoryValue.total = res.total;
+                        $('.idea').click(function() {
+                            ideaCategory.selected = $(this).data('id');
+                            renderLogo();
+                        });
+
+                        ideaCategory.count += logos.length;
+                        ideaCategory.total = res.total;
                     }
 
                 }).catch(err => {
@@ -307,7 +313,6 @@
         ['idea', 'icon', 'font', 'palette'].forEach(category => {
             if (categoryValues[category].fetch)
                 categoryValues[category].fetch();
-            else fetchSVGs(category);
         });
     </script>
 @endsection

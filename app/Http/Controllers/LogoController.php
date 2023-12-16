@@ -11,6 +11,8 @@ use App\Models\Palette;
 use App\Models\Icon;
 use Illuminate\Http\Request;
 
+use Imagick;
+
 class LogoController extends Controller
 {
 
@@ -107,6 +109,7 @@ class LogoController extends Controller
             foreach ($combinations as $index => $combination) {
                 $text = $logoNames[$index % count($logoNames)];
                 $combination['text'] = $text;
+                $combination['id'] = $index;
                 $logos[] = $combination;
             }
             session(['logos' => $logos]);
@@ -130,24 +133,60 @@ class LogoController extends Controller
     public function renderLogos(Request $request) {
         $page = $request->get('page', 1);
         $itemsPerPage = $request->get('itemsPerPage', 9);
+        $sort = $request->get('sort', '');
 
         $logos = session('logos', null);
         $totalItems = count($logos);
-        $svgs = [];
+        $favorites = [];
         if ($logos) {
+            if ($sort == 'favorite') {
+                usort($logos, function ($a, $b) {
+                    return $b['favorite'] - $a['favorite'];
+                });
+            }
+            foreach ($logos as $index => &$logo) {
+                if (isset($logo['favorite']) && $logo['favorite']) $favorites[] = $logo['id'];
+            }
             $startIndex = ($page - 1) * $itemsPerPage;
             $logos = array_slice($logos, $startIndex, $itemsPerPage);
-            foreach ($logos as $index => $logo) {
+            foreach ($logos as $index => &$logo) {
                 $svg = $this->renderLogo($logo);
-                if ($svg) $svgs[] = $svg;
+                if ($svg) {
+                    // $imagick = new Imagick();
+                    // $imagick->readImageBlob($svg);
+                    // $imagick->setImageFormat("png24");
+                    // // $imagick->resizeImage(380, 240, Imagick::FILTER_LANCZOS, 1);
+                    // $pngBinary = $imagick->getImageBlob();
+                    // $pngBase64 = base64_encode($pngBinary);
+                    $logo['svg'] = 'data:image/svg+xml;base64,'.base64_encode($svg);
+                }
             }
         }
 
         return json_encode([
             "success" => true,
             "message" => "",
-            "svgs" => $svgs,
+            "logos" => $logos,
+            "favorites" => $favorites,
             "total" => $totalItems,
+        ]);
+    }
+
+    public function favorites(Request $request) {
+        $favorites = $request->get("favorites");
+        
+        $logos = session('logos', null);
+
+        if ($logos) {
+            foreach ($logos as $index => &$logo) {
+                $logo['favorite'] = in_array($logo['id'], $favorites) ? true : false;
+            }
+            session(['logos' => $logos]);
+        }
+
+        return json_encode([
+            "success" => true,
+            "message" => "",
         ]);
     }
 

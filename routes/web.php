@@ -52,6 +52,7 @@ Route::post('/topic', [TopicController::class, 'store'])->name('topic');
 
 Route::get('/logos', [LogoController::class, 'index'])->name('logos.list');
 Route::get('/logos/render', [LogoController::class, 'renderLogos'])->name('logos.render');
+Route::post('/logos/favorites', [LogoController::class, 'favorites'])->name('logos.favorites');
 Route::get('/logos/{id}/edit', [LogoController::class, 'edit'])->name('logos.edit');
 
 Route::get('/logo/svgs/font', [LogoController::class, 'generateSVGsFont'])->name('logo.svgs.font');
