@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TopicController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
@@ -44,14 +45,17 @@ Route::post('/email/verification-notification', function (Request $request) {
 
 // Public routes
 Route::get('/', [HomeController::class, 'index'])->name('index');
-Route::get('/logo/topic', [LogoController::class, 'topic'])->name('logo.topic');
-Route::post('/logo/topic', [LogoController::class, 'storeTopic'])->name('logo.topic');
-Route::get('/logo/generate', [LogoController::class, 'generate'])->name('logo.generate');
-Route::get('/logo/svgs', [LogoController::class, 'generateSVGs'])->name('logo.svgs');
+
+Route::get('/topic', [TopicController::class, 'index'])->name('topic');
+Route::post('/topic', [TopicController::class, 'store'])->name('topic');
+
+Route::get('/logos', [LogoController::class, 'index'])->name('logos.list');
+Route::get('/logos/render', [LogoController::class, 'renderLogos'])->name('logos.render');
+Route::get('/logos/{id}/edit', [LogoController::class, 'edit'])->name('logos.edit');
+
 Route::get('/logo/svgs/font', [LogoController::class, 'generateSVGsFont'])->name('logo.svgs.font');
 Route::get('/logo/svgs/icon', [LogoController::class, 'generateSVGsIcon'])->name('logo.svgs.icon');
 Route::get('/logo/svgs/palette', [LogoController::class, 'generateSVGsPalette'])->name('logo.svgs.palette');
-Route::get('/logo/edit/{id}', [LogoController::class, 'edit'])->name('logo.edit');
 
 // Private routes
 Route::middleware(['auth', 'verified'])->group(function () {

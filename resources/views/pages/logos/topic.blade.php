@@ -18,7 +18,7 @@
                     <div class="card-title">Provide us all about your company.</div>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('logo.topic') }}">
+                    <form method="POST" action="{{ route('topic') }}">
                         @csrf
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="company-name" name="company_name">

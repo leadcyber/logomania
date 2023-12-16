@@ -68,7 +68,7 @@
         function fetchSVGs() {
             if (count > 0 && count >= total) return;
             $('#logos-wrapper').append(skeleton.repeat(itemsPerPage));
-            $.get("{{ route('logo.svgs') }}?page=" + page + "&itemsPerPage=" + itemsPerPage)
+            $.get("{{ route('logos.render') }}?page=" + page + "&itemsPerPage=" + itemsPerPage)
                 .then(res => {
                     res = JSON.parse(res);
                     if (res.svgs && res.svgs.length > 0) {
@@ -81,7 +81,7 @@
                                 '<div id="svg-' + index + '" class="mb-4 shadow rounded-3 overflow-hidden svg-wrapper">' + svg + 
                                     '<div class="svg-btn-group d-flex">' + 
                                         '<button class="btn btn-icon btn-primary-transparent rounded-pill btn-wave me-2 btn-favorite" onclick="toggleFavorite(this, ' + index + ');"><i class="ri-heart-line"></i></button>' +
-                                        '<a href="/logo/edit/' + index + '" class="btn btn-icon btn-secondary-transparent rounded-pill btn-wave"><i class="ri-edit-line"></i></a>' +
+                                        '<a href="/logos/' + index + '/edit" class="btn btn-icon btn-secondary-transparent rounded-pill btn-wave"><i class="ri-edit-line"></i></a>' +
                                     '</div>' + 
                                 '</div>';
                         })
