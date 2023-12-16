@@ -280,7 +280,7 @@ class LogoController extends Controller
             $fontFile = env('PATH_FONTS_DIR').'/'.$font['family_id'].'/'.$font['filename'];
             $iconFile = env('PATH_ICONS_DIR').'/'.$font['family_id'].'/'.$icon['type'].'/'.$icon['filename'];
 
-            $textBox = $this->calculateTextSize($text1.$text2, 240, 50, $fontFile);
+            $textBox = LogoController::calculateTextSize($text1.$text2, 240, 50, $fontFile);
 
             if (file_exists($fontFile)) {
                 // Font content as a string
@@ -311,13 +311,12 @@ class LogoController extends Controller
                 $image = $data['type'] == 'text_only' ? '' : '<img style="'.$margin.' width: '.$iconWidth.'px; height: '.$iconHeight.'px;" src="data:image/svg+xml;base64,'.base64_encode($iconContent).'"></img>';
                 $flexDirection = $data['type'] == 'text_icon_top' ? 'column' : 'row';
                 
-                $fontName = basename($font['filename'], '.ttf');
                 $svg = '<svg width="380" height="240" xmlns="http://www.w3.org/2000/svg">
-                    <style>@font-face { font-family: "'.$fontName.'"; src: url("data:font/ttf;base64,'.base64_encode($fontContent).'") format("truetype"); } .watermark {position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 60px; transform: rotate(-25deg); font-weight: 900; opacity: 0.04;}</style>
+                    <style>@font-face { font-family: "'.$font['fontname'].'"; src: url("data:font/ttf;base64,'.base64_encode($fontContent).'") format("truetype"); } .watermark {position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 60px; transform: rotate(-25deg); font-weight: 900; opacity: 0.04;}</style>
                     <foreignObject width="380" height="240">
                         <div xmlns="http://www.w3.org/1999/xhtml" style="background: #'.$data['palette']['background'].'; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: '.$flexDirection.';">
                             '.$image.'
-                            <span style="font-family: \''.$fontName.'\'; font-size: '.$textBox['font_size'].'pt; line-height: 1;">
+                            <span style="font-family: \''.$font['fontname'].'\'; font-size: '.$textBox['font_size'].'pt; line-height: 1;">
                                 <span style="color: #'.$data['palette']['text1'].'">'.$text1.'</span><span style="color: #'.$data['palette']['text2'].'">'.$text2.'</span>
                             </span>
                             <span class="watermark">LOGOFULL</span>
@@ -344,7 +343,7 @@ class LogoController extends Controller
      * @param float $maxHeight
      * @return array
      */
-    function calculateTextSize($text, $maxWidth, $maxHeight, $fontFile)
+    public static function calculateTextSize($text, $maxWidth, $maxHeight, $fontFile)
     {
         $size = 0; // Starting font size
         $width = 0;

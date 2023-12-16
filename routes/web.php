@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FontController;
 use App\Http\Controllers\TopicController;
 use Illuminate\Support\Facades\Route;
 
@@ -56,6 +57,8 @@ Route::get('/logos/{id}/edit', [LogoController::class, 'edit'])->name('logos.edi
 Route::get('/logo/svgs/font', [LogoController::class, 'generateSVGsFont'])->name('logo.svgs.font');
 Route::get('/logo/svgs/icon', [LogoController::class, 'generateSVGsIcon'])->name('logo.svgs.icon');
 Route::get('/logo/svgs/palette', [LogoController::class, 'generateSVGsPalette'])->name('logo.svgs.palette');
+
+Route::get('/fonts/rendered', [FontController::class, 'fontsRendered'])->name('fonts.rendered');
 
 // Private routes
 Route::middleware(['auth', 'verified'])->group(function () {

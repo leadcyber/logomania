@@ -60,6 +60,19 @@
             right: 10px;
             font-size: 20px;
         }
+
+        .font-example {
+            display: flex;
+            width: 100%;
+            min-height: 60px;
+            padding: 10px;
+            font-size: 24px;
+            overflow: hidden;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            cursor: pointer;
+        }
     </style>
 @endsection
 
@@ -169,10 +182,12 @@
                 itemsPerPage: 9
             },
             font: {
-                api: "{{ route('logo.svgs.font') }}",
+                api: "{{ route('fonts.rendered') }}",
                 selected: 0,
                 page: 1,
-                itemsPerPage: 9
+                itemsPerPage: 9,
+                fetch: fetchFonts,
+                items: [],
             },
             palette: {
                 api: "{{ route('logo.svgs.palette') }}",
@@ -184,7 +199,8 @@
                 api: "{{ route('logo.svgs.icon') }}",
                 selected: 0,
                 page: 1,
-                itemsPerPage: 9
+                itemsPerPage: 9,
+                items: [],
             },
         }
 
@@ -195,7 +211,9 @@
 
         $('.btn-load-more').click(function() {
             categoryValues[activeCategory].page++;
-            fetchSVGs(activeCategory);
+            if (categoryValues[activeCategory].fetch)
+                categoryValues[activeCategory].fetch();
+            else fetchSVGs(activeCategory);
         });
 
         function toggleCategories() {
@@ -242,10 +260,54 @@
                 });
         }
 
+        function fetchFonts() {
+            var fontCategory = categoryValues.font;
+            if (fontCategory.count > 0 && fontCategory.count >= fontCategory.total) return;
+
+            var wrapperClass = '.subcategory[parent=font] .items-wrapper';
+            $.get(fontCategory.api + "?page=" + fontCategory.page + "&itemsPerPage=" + fontCategory.itemsPerPage)
+                .then(res => {
+                    res = JSON.parse(res);
+                    if (res.fonts && res.fonts.length > 0) {
+                        var html = "";
+                        var styles = "";
+                        var fonts = res.fonts;
+                        fontCategory.items = [...fontCategory.items, ...fonts];
+                        console.log(fontCategory.items);
+                        fonts.forEach((font, i) => {
+                            var index = font.id;
+                            styles += font.style;
+                            html += '<span class="mb-4 shadow border border-secondary rounded-3 font-example" data-id="' + font.id + '" style="font-family: ' + font.fontname + ';">' + font.fontname + '</span>'
+                        });
+                        const styleElement = $('<style>');
+                        styleElement.text(styles);
+                        $('head').append(styleElement);
+                        $(wrapperClass).append(html);
+
+                        $('.font-example').click(function() {
+                            fontCategory.selected = $(this).data('id');
+                            renderLogo();
+                        });
+
+                        fontCategory.count += fonts.length;
+                        fontCategory.total = res.total;
+                    }
+
+                }).catch(err => {
+                    console.log(err);
+                });
+        }
+
+        function renderLogo() {
+
+        }
+
         var activeCategory = "idea";
         toggleCategories();
         ['idea', 'icon', 'font', 'palette'].forEach(category => {
-            fetchSVGs(category);
+            if (categoryValues[category].fetch)
+                categoryValues[category].fetch();
+            else fetchSVGs(category);
         });
     </script>
 @endsection
