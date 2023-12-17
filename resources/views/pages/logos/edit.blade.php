@@ -88,7 +88,7 @@
         }
 
         .palette-example img {
-            max-width: 160px;
+            max-width: 140px;
             overflow: hidden;
         }
 
@@ -167,7 +167,7 @@
                         </div>
                         <div class="subcategory" parent="icon">
                             <h5 class="mb-5">Icons</h5>
-                            <div class="items-wrapper d-flex flex-wrap justify-content-between"></div>
+                            <div class="items-wrapper d-flex flex-wrap justify-content-around"></div>
                             <button class="btn btn-primary btn-load-more">Load More..</button>
                         </div>
                         <div class="subcategory" parent="palette">
@@ -257,7 +257,7 @@
                 api: "{{ route('icons.list') }}",
                 selected: 0,
                 page: 1,
-                itemsPerPage: 20,
+                itemsPerPage: 24,
                 fetch: fetchIcons,
                 items: [],
             },

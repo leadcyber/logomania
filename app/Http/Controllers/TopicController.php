@@ -96,4 +96,37 @@ class TopicController extends Controller
 
         // Exception handler when openai doesn't work as expected
     }
+
+    function suggestLogoNames($input) {
+        // Remove legal business suffixes
+        $suffixes = ['LLC', 'Corp', 'Inc', 'Ltd'];
+        $input = preg_replace('/\b(' . implode('|', $suffixes) . ')\b/i', '', $input);
+    
+        // Remove special characters and ensure the name contains only letters and digits
+        $input = preg_replace('/[^a-zA-Z0-9 ]/', '', $input);
+        $input = trim($input);
+    
+        // Split the input into words
+        $words = explode(' ', $input);
+        
+        // Capitalize the first letter of each word
+        $capitalizedWords = array_map('ucfirst', $words);
+        
+        // Combine the words in different ways
+        $combinations = [];
+        $numWords = count($capitalizedWords);
+    
+        for ($i = 0; $i < $numWords; $i++) {
+            $firstPart = implode('', array_slice($capitalizedWords, 0, $i + 1));
+            $secondPart = implode('', array_slice($capitalizedWords, $i + 1));
+    
+            // Concatenate the two parts with a space
+            $combination = $firstPart . ' ' . $secondPart;
+    
+            // Add the combination to the result array
+            $combinations[] = $combination;
+        }
+    
+        return $combinations;
+    }
 }
