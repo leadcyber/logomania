@@ -41,11 +41,14 @@
             transform: scale(2);
         }
 
-        .svg-wrapper {
-            width: 380px;
-            height: 240px;
+        .svg-wrapper,
+        .layout-example {
+            max-width: 380px;
+            max-height: 240px;
             position: relative;
             cursor: pointer;
+            border-radius: 15px;
+            overflow: hidden;
         }
 
         .svg-wrapper.favorite .btn-favorite {
@@ -73,6 +76,33 @@
             line-height: 1;
             cursor: pointer;
         }
+
+        .palette-example, .idea,
+        .icon-example {
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .icon-example img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            padding: 5px;
+        }
+
+        .idea img,
+        .layout img {
+            width: 100%
+        }
+
+        .palette-example img {
+            max-width: 160px;
+            overflow: hidden;
+        }
+
+        .layout-example img {
+            width: 100%;
+        }
     </style>
 @endsection
 
@@ -80,9 +110,9 @@
     <div class="logo-editor overflow-hidden">
         <div class="row">
             <!-- Left Sidebar -->
-            <div class="col-lg-4 col-md-12">
+            <div class="col-xl-4 col-lg-6 col-md-12 col-xs-12">
                 <div class="row asidebar">
-                    <div class="left-sidebar col-lg-4 col-md-12 border vh-100 pe-0 overflow-auto">
+                    <div class="left-sidebar col-md-5 border vh-100 pe-0 overflow-auto">
                         <!-- Sidebar content -->
                         <ul class="categories">
                             <li class="category" category="idea">
@@ -117,7 +147,7 @@
                     </div>
 
                     <!-- Subcategory Bar -->
-                    <div class="subcategories col-lg-8 col-md-12 border vh-100 overflow-auto">
+                    <div class="subcategories col-md-7 border vh-100 overflow-auto">
                         <!-- Initially hidden, shown when a category is selected -->
                         <div class="subcategory" parent="idea">
                             <h5 class="mb-5">Ideas</h5>
@@ -125,11 +155,9 @@
                             <button class="btn btn-primary btn-load-more">Load More..</button>
                         </div>
                         <div class="subcategory" parent="name">
-                            <h5 class="mb-5">Name Options</h5>
-                            <label for="logoname" class="form-label text-default">Logo Name</label>
+                            <h5 class="mb-5">Logo Name</h5>
                             <input type="text" class="form-control form-control-lg mb-3" id="logoname" name="logoname"
                                 placeholder="Logo Name">
-                            <button class="btn btn-primary">Change</button>
                         </div>
                         <div class="subcategory" parent="font">
                             <h5 class="mb-5">Fonts</h5>
@@ -138,16 +166,17 @@
                         </div>
                         <div class="subcategory" parent="icon">
                             <h5 class="mb-5">Icons</h5>
-                            <div class="items-wrapper d-flex flex-wrap justify-content-center"></div>
+                            <div class="items-wrapper d-flex flex-wrap justify-content-between"></div>
                             <button class="btn btn-primary btn-load-more">Load More..</button>
                         </div>
                         <div class="subcategory" parent="palette">
                             <h5 class="mb-5">Palettes</h5>
-                            <div class="items-wrapper d-flex flex-wrap justify-content-center"></div>
+                            <div class="items-wrapper d-flex flex-wrap justify-content-around"></div>
                             <button class="btn btn-primary btn-load-more">Load More..</button>
                         </div>
                         <div class="subcategory" parent="layout">
                             <h5 class="mb-5">Layouts</h5>
+                            <div class="items-wrapper d-flex flex-wrap justify-content-around"></div>
                         </div>
                         <div class="subcategory" parent="color">
                             <h5 class="mb-5">Color</h5>
@@ -157,7 +186,7 @@
             </div>
 
             <!-- Content -->
-            <div class="col-lg-8 col-md-12 vh-100 overflow-auto">
+            <div class="col-xl-8 col-lg-6 col-md-12 vh-100 overflow-auto">
                 <div class="content" id="logo-wrapper">
                     {!! $svg !!}
                 </div>
@@ -179,29 +208,37 @@
                 api: "{{ route('logos.render') }}",
                 selected: 0,
                 page: 1,
-                itemsPerPage: 9,
+                itemsPerPage: 10,
                 fetch: fetchLogos,
                 items: [],
             },
             font: {
-                api: "{{ route('fonts.rendered') }}",
+                api: "{{ route('fonts.list') }}",
                 selected: 0,
                 page: 1,
-                itemsPerPage: 9,
+                itemsPerPage: 10,
                 fetch: fetchFonts,
                 items: [],
             },
             palette: {
-                api: "{{ route('logo.svgs.palette') }}",
+                api: "{{ route('logos.render.palette') }}",
                 selected: 0,
                 page: 1,
-                itemsPerPage: 9
+                itemsPerPage: 10,
+                fetch: fetchPalettes,
+                items: [],
             },
             icon: {
-                api: "{{ route('logo.svgs.icon') }}",
+                api: "{{ route('icons.list') }}",
                 selected: 0,
                 page: 1,
-                itemsPerPage: 9,
+                itemsPerPage: 20,
+                fetch: fetchIcons,
+                items: [],
+            },
+            layout: {
+                api: "{{ route('logos.render.layout') }}",
+                fetch: fetchLayouts,
                 items: [],
             },
         }
@@ -235,8 +272,6 @@
                     if (res.logos && res.logos.length > 0) {
                         var html = "";
                         var logos = res.logos;
-
-                        logos.sort((a, b) => b.favorite - a.favorite);
 
                         logos.forEach((logo, i) => {
                             html +=
@@ -279,9 +314,7 @@
                         var styles = "";
                         var fonts = res.fonts;
                         fontCategory.items = [...fontCategory.items, ...fonts];
-                        console.log(fontCategory.items);
                         fonts.forEach((font, i) => {
-                            var index = font.id;
                             styles += font.style;
                             html += '<span class="mb-4 shadow border border-secondary rounded-3 font-example" data-id="' + font.id + '" style="font-family: ' + font.fontname + ';">' + font.fontname + '</span>'
                         });
@@ -304,13 +337,113 @@
                 });
         }
 
+        function fetchIcons() {
+            var iconCategory = categoryValues.icon;
+            if (iconCategory.count > 0 && iconCategory.count >= iconCategory.total) return;
+
+            var wrapperClass = '.subcategory[parent=icon] .items-wrapper';
+            $.get(iconCategory.api + "?page=" + iconCategory.page + "&itemsPerPage=" + iconCategory.itemsPerPage)
+                .then(res => {
+                    res = JSON.parse(res);
+                    if (res.icons && res.icons.length > 0) {
+                        var html = "";
+                        var styles = "";
+                        var icons = res.icons;
+                        iconCategory.items = [...iconCategory.items, ...icons];
+
+                        icons.forEach((icon, i) => {
+                            html += '<div class="mb-4 shadow border border-secondary rounded-3 icon-example" data-id="' + icon.id + '">' + 
+                                    '<img src="data:image/svg+xml;base64,' + btoa(icon.svg) + '"/>' + 
+                                '</div>'
+                        });
+                        $(wrapperClass).append(html);
+
+                        $('.icon-example').click(function() {
+                            iconCategory.selected = $(this).data('id');
+                            renderLogo();
+                        });
+
+                        iconCategory.count += icons.length;
+                        iconCategory.total = res.total;
+                    }
+
+                }).catch(err => {
+                    console.log(err);
+                });
+        }
+
+        function fetchPalettes() {
+            var paletteCategory = categoryValues.palette;
+            if (paletteCategory.count > 0 && paletteCategory.count >= paletteCategory.total) return;
+
+            var wrapperClass = '.subcategory[parent=palette] .items-wrapper';
+            $.get(paletteCategory.api + "?page=" + paletteCategory.page + "&itemsPerPage=" + paletteCategory.itemsPerPage)
+                .then(res => {
+                    res = JSON.parse(res);
+                    if (res.palettes && res.palettes.length > 0) {
+                        var html = "";
+                        var styles = "";
+                        var palettes = res.palettes;
+                        paletteCategory.items = [...paletteCategory.items, ...palettes];
+
+                        palettes.forEach((palette, i) => {
+                            html += '<div class="mb-4 shadow rounded-3 palette-example" data-id="' + palette.id + '">' + 
+                                    '<img src="' + palette.svg + '"/>' + 
+                                '</div>'
+                        });
+                        $(wrapperClass).append(html);
+
+                        $('.palette-example').click(function() {
+                            paletteCategory.selected = $(this).data('id');
+                            renderLogo();
+                        });
+
+                        paletteCategory.count += palettes.length;
+                        paletteCategory.total = res.total;
+                    }
+
+                }).catch(err => {
+                    console.log(err);
+                });
+        }
+
+        function fetchLayouts() {
+            var layoutCategory = categoryValues.layout;
+
+            var wrapperClass = '.subcategory[parent=layout] .items-wrapper';
+            $.get(layoutCategory.api)
+                .then(res => {
+                    res = JSON.parse(res);
+                    if (res.layouts && res.layouts.length > 0) {
+                        var html = "";
+                        var layouts = res.layouts;
+                        layoutCategory.items = layouts;
+
+                        layouts.forEach((layout, i) => {
+                            html += '<div class="mb-4 shadow rounded-3 layout-example" data-id="' + layout.type + '">' + 
+                                    '<img src="' + layout.svg + '"/>' + 
+                                '</div>'
+                        });
+                        $(wrapperClass).append(html);
+
+                        $('.layout-example').click(function() {
+                            layoutCategory.selected = $(this).data('id');
+                            renderLogo();
+                        });
+                    }
+
+                }).catch(err => {
+                    console.log(err);
+                });
+        }
+
         function renderLogo() {
 
         }
 
         var activeCategory = "idea";
         toggleCategories();
-        ['idea', 'icon', 'font', 'palette'].forEach(category => {
+        ['idea', 'icon', 'font', 'palette', 'layout'].forEach(category => {
             if (categoryValues[category].fetch)
                 categoryValues[category].fetch();
         });

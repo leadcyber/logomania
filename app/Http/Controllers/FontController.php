@@ -8,7 +8,7 @@ use App\Models\Font;
 
 class FontController extends Controller
 {
-    function fontsRendered(Request $request) {
+    function list(Request $request) {
         $page = $request->get('page', 1);
         $itemsPerPage = $request->get('itemsPerPage', 9);
         $offset = ($page - 1) * $itemsPerPage;

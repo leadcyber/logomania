@@ -152,12 +152,6 @@ class LogoController extends Controller
             foreach ($logos as $index => &$logo) {
                 $svg = $this->renderLogo($logo);
                 if ($svg) {
-                    // $imagick = new Imagick();
-                    // $imagick->readImageBlob($svg);
-                    // $imagick->setImageFormat("png24");
-                    // // $imagick->resizeImage(380, 240, Imagick::FILTER_LANCZOS, 1);
-                    // $pngBinary = $imagick->getImageBlob();
-                    // $pngBase64 = base64_encode($pngBinary);
                     $logo['svg'] = 'data:image/svg+xml;base64,'.base64_encode($svg);
                 }
             }
@@ -190,106 +184,66 @@ class LogoController extends Controller
         ]);
     }
 
-    public function generateSVGsFont(Request $request) {
+    public function renderLogosPalette(Request $request) {
         $page = $request->get('page', 1);
         $itemsPerPage = $request->get('itemsPerPage', 9);
-        $combination = session('combination', null);
+        $offset = ($page - 1) * $itemsPerPage;
 
-        if (!$combination) return redirect()->route('logos.list');
+        $palettes = Palette::offset($offset)
+            ->limit($itemsPerPage)
+            ->get()->toArray();
 
-        $logos = [];
-        $fonts = Font::where('family_id', $combination['family_id'])->get()->toArray();
-        foreach ($fonts as $font) {
-            $logo = $combination;
-            $logo['font_id'] = $font['id'];
-            $logo['font'] = $font;
-            $logos[] = $logo;
-        }
-        $totalItems = count($logos);
-        $svgs = [];
-        if ($logos) {
-            $startIndex = ($page - 1) * $itemsPerPage;
-            $logos = array_slice($logos, $startIndex, $itemsPerPage);
-            foreach ($logos as $index => $logo) {
-                $svg = $this->renderLogo($logo);
-                if ($svg) $svgs[] = $svg;
+        $data = [
+            'icon' => Icon::find(104)->toArray(),
+            'font' => Font::find(70)->toArray(),
+            'type' => 'text_icon_left',
+            'text' => 'Test Logo',
+        ];
+
+        foreach ($palettes as $key => &$palette) {
+            $data['palette'] = $palette;
+            $svg = $this->renderLogo($data);
+
+            if ($svg) {
+                $palette['svg'] = 'data:image/svg+xml;base64,'.base64_encode($svg);
             }
         }
-
+        
         return json_encode([
             "success" => true,
             "message" => "",
-            "svgs" => $svgs,
-            "total" => $totalItems,
+            "palettes" => $palettes,
+            "total" => Palette::count(),
         ]);
     }
 
-    public function generateSVGsIcon(Request $request) {
-        $page = $request->get('page', 1);
-        $itemsPerPage = $request->get('itemsPerPage', 9);
-        $combination = session('combination', null);
+    public function renderLogosLayout(Request $request) {
+        $data = [
+            'icon' => Icon::find(104)->toArray(),
+            'font' => Font::find(70)->toArray(),
+            'text' => 'Test Logo',
+            'palette' => Palette::find(1)->toArray(),
+        ];
 
-        if (!$combination) return redirect()->route('logos.list');
+        $layouts = [
+            ["type" => 'text_only'],
+            ["type" => 'text_icon_left'],
+            ["type" => 'text_icon_top']
+        ];
 
-        $logos = [];
-        $icons = Icon::where('family_id', $combination['family_id'])->get()->toArray();
-        foreach ($icons as $icon) {
-            $logo = $combination;
-            $logo['icon_id'] = $icon['id'];
-            $logo['icon'] = $icon;
-            $logo['type'] = 'text_icon_top';
-            $logos[] = $logo;
-        }
-        $totalItems = count($logos);
-        $svgs = [];
-        if ($logos) {
-            $startIndex = ($page - 1) * $itemsPerPage;
-            $logos = array_slice($logos, $startIndex, $itemsPerPage);
-            foreach ($logos as $index => $logo) {
-                $svg = $this->renderLogo($logo);
-                if ($svg) $svgs[] = $svg;
+        foreach ($layouts as &$layout) {
+            $data['type'] = $layout['type'];
+            $svg = $this->renderLogo($data);
+
+            if ($svg) {
+                $layout['svg'] = 'data:image/svg+xml;base64,'.base64_encode($svg);
             }
         }
-
+        
         return json_encode([
             "success" => true,
             "message" => "",
-            "svgs" => $svgs,
-            "total" => $totalItems,
-        ]);
-    }
-
-    public function generateSVGsPalette(Request $request) {
-        $page = $request->get('page', 1);
-        $itemsPerPage = $request->get('itemsPerPage', 9);
-        $combination = session('combination', null);
-
-        if (!$combination) return redirect()->route('logos.list');
-
-        $logos = [];
-        $palettes = Palette::get()->toArray();
-        foreach ($palettes as $palette) {
-            $logo = $combination;
-            $logo['palette_id'] = $palette['id'];
-            $logo['palette'] = $palette;
-            $logos[] = $logo;
-        }
-        $totalItems = count($logos);
-        $svgs = [];
-        if ($logos) {
-            $startIndex = ($page - 1) * $itemsPerPage;
-            $logos = array_slice($logos, $startIndex, $itemsPerPage);
-            foreach ($logos as $index => $logo) {
-                $svg = $this->renderLogo($logo);
-                if ($svg) $svgs[] = $svg;
-            }
-        }
-
-        return json_encode([
-            "success" => true,
-            "message" => "",
-            "svgs" => $svgs,
-            "total" => $totalItems,
+            "layouts" => $layouts,
         ]);
     }
 
@@ -317,7 +271,7 @@ class LogoController extends Controller
             $font = $data['font'];
             $icon = $data['icon'];
             $fontFile = env('PATH_FONTS_DIR').'/'.$font['family_id'].'/'.$font['filename'];
-            $iconFile = env('PATH_ICONS_DIR').'/'.$font['family_id'].'/'.$icon['type'].'/'.$icon['filename'];
+            $iconFile = env('PATH_ICONS_DIR').'/'.$icon['family_id'].'/'.$icon['type'].'/'.$icon['filename'];
 
             $textBox = LogoController::calculateTextSize($text1.$text2, 240, 50, $fontFile);
 
@@ -369,7 +323,7 @@ class LogoController extends Controller
                 return null;
             }
         } catch (\Exception $e) {
-            // echo $e->getMessage();
+            echo $e->getMessage();
             return null;
         }
     }
