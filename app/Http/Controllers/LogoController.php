@@ -125,9 +125,13 @@ class LogoController extends Controller
         }
         $combination = $logos[$id];
         session(['combination'=> $combination]);
-        $svg = $this->renderLogo($logos[$id]);
+        $logo = $logos[$id];
+        $iconFile = env('PATH_ICONS_DIR').'/'.$logo['icon']['family_id'].'/'.$logo['icon']['type'].'/'.$logo['icon']['filename'];
+        $iconContent = file_get_contents($iconFile);
+        $logo['icon']['blob'] = base64_encode($iconContent);
+        $svg = $this->renderLogo($logo, 800, 500);
 
-        return view('pages.logos.edit', compact('svg'));
+        return view('pages.logos.edit', compact('svg', 'logo'));
     }
 
     public function renderLogos(Request $request) {
@@ -247,33 +251,23 @@ class LogoController extends Controller
         ]);
     }
 
-    public function renderLogo($data)
+    public function renderLogo($data, $width = 380, $height = 240)
     {
-        $svgMaxWidth = 240;
-        $svgMaxHeight = 140;
-        $iconWidth = 40;
-        $iconHeight = 40;
+        $iconWidth = $width / 10;
+        $iconHeight = $width / 10;
+        $textWidth = $width * 0.6;
+        $textHeight = $iconHeight + 20;
         try {
             $words = explode(' ', $data['text']);
             $text1 = $words[0];
             $text2 = isset($words[1]) ? $words[1] : '';
-
-            // Estimate font size
-            // $textWidth = $svgMaxWidth;
-            // $textHeight = $svgMaxHeight - $iconHeight;
-            // if ($data['type'] == 'text_icon_top') {
-            //     $textWidth = $svgMaxWidth;
-            // }
-            // else if ($data['type'] == 'text_icon_left') {
-            //     $textWidth = $svgMaxWidth - $iconWidth;
-            // }
 
             $font = $data['font'];
             $icon = $data['icon'];
             $fontFile = env('PATH_FONTS_DIR').'/'.$font['family_id'].'/'.$font['filename'];
             $iconFile = env('PATH_ICONS_DIR').'/'.$icon['family_id'].'/'.$icon['type'].'/'.$icon['filename'];
 
-            $textBox = LogoController::calculateTextSize($text1.$text2, 240, 50, $fontFile);
+            $textBox = LogoController::calculateTextSize($text1.$text2, $textWidth, $textHeight, $fontFile);
 
             if (file_exists($fontFile)) {
                 // Font content as a string
@@ -301,16 +295,16 @@ class LogoController extends Controller
 
                 // Icon position styles
                 $margin = $data['type'] == 'text_icon_top' ? 'margin-bottom: 5px;' : 'margin-right: 5px;';
-                $image = $data['type'] == 'text_only' ? '' : '<img style="'.$margin.' width: '.$iconWidth.'px; height: '.$iconHeight.'px;" src="data:image/svg+xml;base64,'.base64_encode($iconContent).'"></img>';
+                $image = '<img part="icon" style="'.$margin.' width: '.$iconWidth.'px; height: '.$iconHeight.'px; '.($data['type'] == 'text_only' ? 'display: none;' : '').'" src="data:image/svg+xml;base64,'.base64_encode($iconContent).'"></img>';
                 $flexDirection = $data['type'] == 'text_icon_top' ? 'column' : 'row';
                 
-                $svg = '<svg width="380" height="240" xmlns="http://www.w3.org/2000/svg">
+                $svg = '<svg width="'.$width.'" height="'.$height.'" xmlns="http://www.w3.org/2000/svg">
                     <style>@font-face { font-family: "'.$font['fontname'].'"; src: url("data:font/ttf;base64,'.base64_encode($fontContent).'") format("truetype"); } .watermark {position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 60px; transform: rotate(-25deg); font-weight: 900; opacity: 0.04;}</style>
-                    <foreignObject width="380" height="240">
-                        <div xmlns="http://www.w3.org/1999/xhtml" style="background: #'.$data['palette']['background'].'; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: '.$flexDirection.';">
+                    <foreignObject width="100%" height="100%">
+                        <div part="background" xmlns="http://www.w3.org/1999/xhtml" style="background: #'.$data['palette']['background'].'; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: '.$flexDirection.';">
                             '.$image.'
-                            <span style="font-family: \''.$font['fontname'].'\'; font-size: '.$textBox['font_size'].'pt; line-height: 1;">
-                                <span style="color: #'.$data['palette']['text1'].'">'.$text1.'</span><span style="color: #'.$data['palette']['text2'].'">'.$text2.'</span>
+                            <span part="font" style="font-family: \''.$font['fontname'].'\'; font-size: '.$textBox['font_size'].'pt; line-height: 1;">
+                                <span part="text1" style="color: #'.$data['palette']['text1'].'">'.$text1.'</span><span part="text2" style="color: #'.$data['palette']['text2'].'">'.$text2.'</span>
                             </span>
                             <span class="watermark">LOGOFULL</span>
                         </div>
