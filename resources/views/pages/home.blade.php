@@ -20,7 +20,7 @@
                                     class="text-secondary">LOGOMANIA ! {{ __('messages.welcome') }}</span></p>
                             <div class="fs-16 mb-5 text-fixed-white op-7">logomania - Now you can use this admin template to
                                 design stunning dashboards that will wow your target viewers or users to no end.</div>
-                            <a href="{{ url('/logo/topic') }}" class="m-1 btn btn-primary">
+                            <a href="{{ route('topic') }}" class="m-1 btn btn-primary">
                                 Get Started
                                 <i class="ri-eye-line ms-2 align-middle"></i>
                             </a>
