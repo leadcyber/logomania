@@ -15,6 +15,7 @@
         "mailjet/laravel-mailjet": "^3.0",
         "meyfa/php-svg": "^0.14.6",
         "openai-php/laravel": "^0.7.0",
+        "phenx/php-font-lib": "^0.5.4",
         "socialiteproviders/twitter": "^4.1",
         "symfony/http-client": "^6.3"
     },

@@ -10,107 +10,16 @@ use App\Models\Font;
 use App\Models\Palette;
 use App\Models\Icon;
 use Illuminate\Http\Request;
-use OpenAI\Laravel\Facades\OpenAI;
 
-use SVG\SVG;
-use SVG\Nodes\Shapes\SVGCircle;
-use SVG\Nodes\Shapes\SVGRect;
-use SVG\Nodes\Texts\SVGText;
-use SVG\Nodes\Structures\SVGGroup;
+use Imagick;
 
 class LogoController extends Controller
 {
-    public function topic()
-    {
-        $families = Family::all();
 
-        return view('pages.logo.topic', compact('families'));
-    }
-
-    public function storeTopic(Request $request)
-    {
-        $topic = $request->all();
-
-        $company_name = $topic['company_name'];
-        $desc = $topic['desc'];
-        $familyIds = [];
-
-        // Get company name suggestions from openAI
-        $nameSuggestions = "";
-        if (!$company_name && $desc) {
-            $prompt = "The activity of my company is: $desc.\nPropose 20 short names for it (WITHOUT NUMBERING) consisting of two words separated by a SPACE.\nNote that I forbid you from using accented words. Respond with an unordered list, without introduction, and separate each name with a comma. Don't include numbers.\n\nOutput Format: Happy Family,Awesome World";
-            $result = OpenAI::chat()->create([
-                'model' => 'gpt-3.5-turbo',
-                'messages' => [
-                    ['role' => 'user', 'content' => $prompt],
-                ],
-            ]);
-
-            $nameSuggestions = $result->choices[0]->message->content;
-        }
-        else if ($company_name) {
-            $nameSuggestions = implode(',', $this->suggestLogoNames($topic['company_name']));
-        }
-
-        // Identify industries related to the company
-        $familySuggestions = "";
-        $families = Family::all()->toArray();
-        $familyNames = array_map(function ($family) {
-            return str_replace("families.", "", $family['text_code']);
-        }, $families);
-        if ($company_name || $desc) {
-            $prompt = "Company Name: '$company_name'\nDescription: '$desc'\n\n
-            Identify 2 industries related to this company from the following array. Please use original values without numbering, ordering, introduction or comments.\n\n".json_encode($familyNames)."\n\nOutput Format: home,family";
-            $result = OpenAI::chat()->create([
-                'model' => 'gpt-3.5-turbo',
-                'messages' => [
-                    ['role' => 'user', 'content' => $prompt],
-                ],
-            ]);
-            
-            $familySuggestions = explode(',', $result->choices[0]->message->content);
-            if (count($familySuggestions) >= 1) {
-                foreach ($familySuggestions as $familySuggestion) {
-                    foreach ($families as $family) {
-                        if (str_contains($family['text_code'], trim($familySuggestion))) {
-                            $familyIds[] = $family['id'];
-                        }
-                    }
-                }
-            }
-        }
-
-        $user_id = null;
-        if (auth()->check()) {
-            $user_id = auth()->user()->id;
-        }
-
-        // Store topic to database
-        if (count($familyIds) >= 1) {
-            $topic = Topic::create([
-                'user_id' => $user_id,
-                'company_name' => $company_name,
-                'desc' => $desc,
-                'family1_id' => $familyIds[0],
-                'family2_id' => isset($familyIds[1]) ? $familyIds[1] : $familyIds[0],
-                'suggestions' => $nameSuggestions,
-            ]);
-
-            // Store topic into session to track the progress
-            session(['topic' => $topic, 'logos' => null]);
-
-            // Redirect to logo generation page
-            return redirect()->route('logo.generate');
-        }
-
-        // Exception handler when openai doesn't work as expected
-    }
-
-    public function generate()
-    {
+    public function index() {
         $topic = session('topic', null);
         if (!$topic) {
-            return redirect()->route('logo.topic');
+            return redirect()->route('topic');
         }
         
         $logos = session('logos', null);
@@ -200,180 +109,165 @@ class LogoController extends Controller
             foreach ($combinations as $index => $combination) {
                 $text = $logoNames[$index % count($logoNames)];
                 $combination['text'] = $text;
+                $combination['id'] = $index;
                 $logos[] = $combination;
             }
             session(['logos' => $logos]);
         }
 
-        return view('pages.logo.generate');
+        return view('pages.logos.index');
     }
 
     public function edit(Request $request, $id) {
         $logos = session('logos', null);
         if (empty($logos)) {
-            return redirect('pages.logo.topic');
+            return redirect('topic');
         }
         $combination = $logos[$id];
         session(['combination'=> $combination]);
-        $svg = $this->generateSVG($logos[$id]);
+        $logo = $logos[$id];
+        $iconFile = env('PATH_ICONS_DIR').'/'.$logo['icon']['family_id'].'/'.$logo['icon']['type'].'/'.$logo['icon']['filename'];
+        $iconContent = file_get_contents($iconFile);
+        $logo['icon']['blob'] = base64_encode($iconContent);
+        $svg = $this->renderLogo($logo, 800, 500);
 
-        return view('pages.logo.edit', compact('svg'));
+        return view('pages.logos.edit', compact('svg', 'logo'));
     }
 
-    public function generateSVGs(Request $request) {
+    public function renderLogos(Request $request) {
         $page = $request->get('page', 1);
         $itemsPerPage = $request->get('itemsPerPage', 9);
+        $sort = $request->get('sort', '');
 
         $logos = session('logos', null);
         $totalItems = count($logos);
-        $svgs = [];
+        $favorites = [];
         if ($logos) {
+            if ($sort == 'favorite') {
+                usort($logos, function ($a, $b) {
+                    return $b['favorite'] - $a['favorite'];
+                });
+            }
+            foreach ($logos as $index => &$logo) {
+                if (isset($logo['favorite']) && $logo['favorite']) $favorites[] = $logo['id'];
+            }
             $startIndex = ($page - 1) * $itemsPerPage;
             $logos = array_slice($logos, $startIndex, $itemsPerPage);
-            foreach ($logos as $index => $logo) {
-                $svg = $this->generateSVG($logo);
-                if ($svg) $svgs[] = $svg;
+            foreach ($logos as $index => &$logo) {
+                $svg = $this->renderLogo($logo);
+                if ($svg) {
+                    $logo['svg'] = 'data:image/svg+xml;base64,'.base64_encode($svg);
+                }
             }
         }
 
         return json_encode([
             "success" => true,
             "message" => "",
-            "svgs" => $svgs,
+            "logos" => $logos,
+            "favorites" => $favorites,
             "total" => $totalItems,
         ]);
     }
 
-    public function generateSVGsFont(Request $request) {
+    public function favorites(Request $request) {
+        $favorites = $request->get("favorites");
+        
+        $logos = session('logos', null);
+
+        if ($logos) {
+            foreach ($logos as $index => &$logo) {
+                $logo['favorite'] = in_array($logo['id'], $favorites) ? true : false;
+            }
+            session(['logos' => $logos]);
+        }
+
+        return json_encode([
+            "success" => true,
+            "message" => "",
+        ]);
+    }
+
+    public function renderLogosPalette(Request $request) {
         $page = $request->get('page', 1);
         $itemsPerPage = $request->get('itemsPerPage', 9);
-        $combination = session('combination', null);
+        $offset = ($page - 1) * $itemsPerPage;
 
-        if (!$combination) return redirect()->route('logo.generate');
+        $palettes = Palette::offset($offset)
+            ->limit($itemsPerPage)
+            ->get()->toArray();
 
-        $logos = [];
-        $fonts = Font::where('family_id', $combination['family_id'])->get()->toArray();
-        foreach ($fonts as $font) {
-            $logo = $combination;
-            $logo['font_id'] = $font['id'];
-            $logo['font'] = $font;
-            $logos[] = $logo;
-        }
-        $totalItems = count($logos);
-        $svgs = [];
-        if ($logos) {
-            $startIndex = ($page - 1) * $itemsPerPage;
-            $logos = array_slice($logos, $startIndex, $itemsPerPage);
-            foreach ($logos as $index => $logo) {
-                $svg = $this->generateSVG($logo);
-                if ($svg) $svgs[] = $svg;
+        $data = [
+            'icon' => Icon::find(104)->toArray(),
+            'font' => Font::find(70)->toArray(),
+            'type' => 'text_icon_left',
+            'text' => 'Test Logo',
+        ];
+
+        foreach ($palettes as $key => &$palette) {
+            $data['palette'] = $palette;
+            $svg = $this->renderLogo($data);
+
+            if ($svg) {
+                $palette['svg'] = 'data:image/svg+xml;base64,'.base64_encode($svg);
             }
         }
-
+        
         return json_encode([
             "success" => true,
             "message" => "",
-            "svgs" => $svgs,
-            "total" => $totalItems,
+            "palettes" => $palettes,
+            "total" => Palette::count(),
         ]);
     }
 
-    public function generateSVGsIcon(Request $request) {
-        $page = $request->get('page', 1);
-        $itemsPerPage = $request->get('itemsPerPage', 9);
-        $combination = session('combination', null);
+    public function renderLogosLayout(Request $request) {
+        $data = [
+            'icon' => Icon::find(104)->toArray(),
+            'font' => Font::find(70)->toArray(),
+            'text' => 'Test Logo',
+            'palette' => Palette::find(1)->toArray(),
+        ];
 
-        if (!$combination) return redirect()->route('logo.generate');
+        $layouts = [
+            ["type" => 'text_only'],
+            ["type" => 'text_icon_left'],
+            ["type" => 'text_icon_top']
+        ];
 
-        $logos = [];
-        $icons = Icon::where('family_id', $combination['family_id'])->get()->toArray();
-        foreach ($icons as $icon) {
-            $logo = $combination;
-            $logo['icon_id'] = $icon['id'];
-            $logo['icon'] = $icon;
-            $logo['type'] = 'text_icon_top';
-            $logos[] = $logo;
-        }
-        $totalItems = count($logos);
-        $svgs = [];
-        if ($logos) {
-            $startIndex = ($page - 1) * $itemsPerPage;
-            $logos = array_slice($logos, $startIndex, $itemsPerPage);
-            foreach ($logos as $index => $logo) {
-                $svg = $this->generateSVG($logo);
-                if ($svg) $svgs[] = $svg;
+        foreach ($layouts as &$layout) {
+            $data['type'] = $layout['type'];
+            $svg = $this->renderLogo($data);
+
+            if ($svg) {
+                $layout['svg'] = 'data:image/svg+xml;base64,'.base64_encode($svg);
             }
         }
-
+        
         return json_encode([
             "success" => true,
             "message" => "",
-            "svgs" => $svgs,
-            "total" => $totalItems,
+            "layouts" => $layouts,
         ]);
     }
 
-    public function generateSVGsPalette(Request $request) {
-        $page = $request->get('page', 1);
-        $itemsPerPage = $request->get('itemsPerPage', 9);
-        $combination = session('combination', null);
-
-        if (!$combination) return redirect()->route('logo.generate');
-
-        $logos = [];
-        $palettes = Palette::get()->toArray();
-        foreach ($palettes as $palette) {
-            $logo = $combination;
-            $logo['palette_id'] = $palette['id'];
-            $logo['palette'] = $palette;
-            $logos[] = $logo;
-        }
-        $totalItems = count($logos);
-        $svgs = [];
-        if ($logos) {
-            $startIndex = ($page - 1) * $itemsPerPage;
-            $logos = array_slice($logos, $startIndex, $itemsPerPage);
-            foreach ($logos as $index => $logo) {
-                $svg = $this->generateSVG($logo);
-                if ($svg) $svgs[] = $svg;
-            }
-        }
-
-        return json_encode([
-            "success" => true,
-            "message" => "",
-            "svgs" => $svgs,
-            "total" => $totalItems,
-        ]);
-    }
-
-    public function generateSVG($data)
+    public function renderLogo($data, $width = 380, $height = 240)
     {
-        $svgMaxWidth = 240;
-        $svgMaxHeight = 140;
-        $iconWidth = 40;
-        $iconHeight = 40;
+        $iconWidth = $width / 10;
+        $iconHeight = $width / 10;
+        $textWidth = $width * 0.6;
+        $textHeight = $iconHeight + 20;
         try {
             $words = explode(' ', $data['text']);
             $text1 = $words[0];
             $text2 = isset($words[1]) ? $words[1] : '';
 
-            // Estimate font size
-            // $textWidth = $svgMaxWidth;
-            // $textHeight = $svgMaxHeight - $iconHeight;
-            // if ($data['type'] == 'text_icon_top') {
-            //     $textWidth = $svgMaxWidth;
-            // }
-            // else if ($data['type'] == 'text_icon_left') {
-            //     $textWidth = $svgMaxWidth - $iconWidth;
-            // }
-
             $font = $data['font'];
             $icon = $data['icon'];
             $fontFile = env('PATH_FONTS_DIR').'/'.$font['family_id'].'/'.$font['filename'];
-            $iconFile = env('PATH_ICONS_DIR').'/'.$font['family_id'].'/'.$icon['type'].'/'.$icon['filename'];
+            $iconFile = env('PATH_ICONS_DIR').'/'.$icon['family_id'].'/'.$icon['type'].'/'.$icon['filename'];
 
-            $textBox = $this->calculateTextSize($text1.$text2, 240, 50, $fontFile);
+            $textBox = LogoController::calculateTextSize($text1.$text2, $textWidth, $textHeight, $fontFile);
 
             if (file_exists($fontFile)) {
                 // Font content as a string
@@ -401,17 +295,16 @@ class LogoController extends Controller
 
                 // Icon position styles
                 $margin = $data['type'] == 'text_icon_top' ? 'margin-bottom: 5px;' : 'margin-right: 5px;';
-                $image = $data['type'] == 'text_only' ? '' : '<img style="'.$margin.' width: '.$iconWidth.'px; height: '.$iconHeight.'px;" src="data:image/svg+xml;base64,'.base64_encode($iconContent).'"></img>';
+                $image = '<img part="icon" style="'.$margin.' width: '.$iconWidth.'px; height: '.$iconHeight.'px; '.($data['type'] == 'text_only' ? 'display: none;' : '').'" src="data:image/svg+xml;base64,'.base64_encode($iconContent).'"></img>';
                 $flexDirection = $data['type'] == 'text_icon_top' ? 'column' : 'row';
                 
-                $fontName = basename($font['filename'], '.ttf');
-                $svg = '<svg width="380" height="240" xmlns="http://www.w3.org/2000/svg">
-                    <style>@font-face { font-family: "'.$fontName.'"; src: url("data:font/ttf;base64,'.base64_encode($fontContent).'") format("truetype"); } .watermark {position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 60px; transform: rotate(-25deg); font-weight: 900; opacity: 0.04;}</style>
-                    <foreignObject width="380" height="240">
-                        <div xmlns="http://www.w3.org/1999/xhtml" style="background: #'.$data['palette']['background'].'; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: '.$flexDirection.';">
+                $svg = '<svg width="'.$width.'" height="'.$height.'" xmlns="http://www.w3.org/2000/svg">
+                    <style>@font-face { font-family: "'.$font['fontname'].'"; src: url("data:font/ttf;base64,'.base64_encode($fontContent).'") format("truetype"); } .watermark {position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 60px; transform: rotate(-25deg); font-weight: 900; opacity: 0.04;}</style>
+                    <foreignObject width="100%" height="100%">
+                        <div part="background" xmlns="http://www.w3.org/1999/xhtml" style="background: #'.$data['palette']['background'].'; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: '.$flexDirection.';">
                             '.$image.'
-                            <span style="font-family: \''.$fontName.'\'; font-size: '.$textBox['font_size'].'pt; line-height: 1;">
-                                <span style="color: #'.$data['palette']['text1'].'">'.$text1.'</span><span style="color: #'.$data['palette']['text2'].'">'.$text2.'</span>
+                            <span part="font" style="font-family: \''.$font['fontname'].'\'; font-size: '.$textBox['font_size'].'pt; line-height: 1;">
+                                <span part="text1" style="color: #'.$data['palette']['text1'].'">'.$text1.'</span><span part="text2" style="color: #'.$data['palette']['text2'].'">'.$text2.'</span>
                             </span>
                             <span class="watermark">LOGOFULL</span>
                         </div>
@@ -424,7 +317,7 @@ class LogoController extends Controller
                 return null;
             }
         } catch (\Exception $e) {
-            // echo $e->getMessage();
+            echo $e->getMessage();
             return null;
         }
     }
@@ -437,7 +330,7 @@ class LogoController extends Controller
      * @param float $maxHeight
      * @return array
      */
-    function calculateTextSize($text, $maxWidth, $maxHeight, $fontFile)
+    public static function calculateTextSize($text, $maxWidth, $maxHeight, $fontFile)
     {
         $size = 0; // Starting font size
         $width = 0;

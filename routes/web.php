@@ -1,13 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FontController;
+use App\Http\Controllers\IconController;
+use App\Http\Controllers\TopicController;
 
-use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
 // use App\Http\Controllers\Controller;
 
 
@@ -44,14 +47,21 @@ Route::post('/email/verification-notification', function (Request $request) {
 
 // Public routes
 Route::get('/', [HomeController::class, 'index'])->name('index');
-Route::get('/logo/topic', [LogoController::class, 'topic'])->name('logo.topic');
-Route::post('/logo/topic', [LogoController::class, 'storeTopic'])->name('logo.topic');
-Route::get('/logo/generate', [LogoController::class, 'generate'])->name('logo.generate');
-Route::get('/logo/svgs', [LogoController::class, 'generateSVGs'])->name('logo.svgs');
-Route::get('/logo/svgs/font', [LogoController::class, 'generateSVGsFont'])->name('logo.svgs.font');
-Route::get('/logo/svgs/icon', [LogoController::class, 'generateSVGsIcon'])->name('logo.svgs.icon');
-Route::get('/logo/svgs/palette', [LogoController::class, 'generateSVGsPalette'])->name('logo.svgs.palette');
-Route::get('/logo/edit/{id}', [LogoController::class, 'edit'])->name('logo.edit');
+
+Route::get('/topic', [TopicController::class, 'index'])->name('topic');
+Route::post('/topic', [TopicController::class, 'store'])->name('topic');
+
+Route::get('/logos', [LogoController::class, 'index'])->name('logos.list');
+Route::get('/logos/render', [LogoController::class, 'renderLogos'])->name('logos.render');
+Route::get('/logos/render/palette', [LogoController::class, 'renderLogosPalette'])->name('logos.render.palette');
+Route::get('/logos/render/layout', [LogoController::class, 'renderLogosLayout'])->name('logos.render.layout');
+Route::post('/logos/favorites', [LogoController::class, 'favorites'])->name('logos.favorites');
+Route::get('/logos/{id}/edit', [LogoController::class, 'edit'])->name('logos.edit');
+
+
+Route::get('/fonts/list', [FontController::class, 'list'])->name('fonts.list');
+
+Route::get('/icons/list', [IconController::class, 'list'])->name('icons.list');
 
 // Private routes
 Route::middleware(['auth', 'verified'])->group(function () {

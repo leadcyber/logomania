@@ -42,9 +42,11 @@ class FontsTableSeeder extends Seeder
             } else {
                 // If it's a file, add it to the result array
                 $familyId = basename($directory);
+                $font = \FontLib\Font::load($path);
                 $result[] = [
                     'family_id' => $familyId,
                     'filename' => $item,
+                    'fontname' => $font->getFontFullName(),
                 ];
             }
         }

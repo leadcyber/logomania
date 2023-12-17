@@ -62,26 +62,28 @@
 
         $('.btn-load-more').click(() => {
             page++;
-            fetchSVGs();
+            fetchLogos();
         });
 
-        function fetchSVGs() {
+        function fetchLogos() {
             if (count > 0 && count >= total) return;
             $('#logos-wrapper').append(skeleton.repeat(itemsPerPage));
-            $.get("{{ route('logo.svgs') }}?page=" + page + "&itemsPerPage=" + itemsPerPage)
+            $.get("{{ route('logos.render') }}?page=" + page + "&itemsPerPage=" + itemsPerPage)
                 .then(res => {
                     res = JSON.parse(res);
-                    if (res.svgs && res.svgs.length > 0) {
+                    if (res.logos && res.logos.length > 0) {
                         var html = "";
-                        var svgs = res.svgs;
+                        var logos = res.logos;
+
+                        favorites = res.favorites;
                         
-                        svgs.forEach((svg, i) => {
-                            var index = count + i;
+                        logos.forEach((logo, i) => {
                             html += 
-                                '<div id="svg-' + index + '" class="mb-4 shadow rounded-3 overflow-hidden svg-wrapper">' + svg + 
+                                '<div id="logo-' + logo.id + '" class="mb-4 shadow rounded-3 overflow-hidden svg-wrapper ' + (logo.favorite ? 'favorite' : '') + '">' + 
+                                    '<img src="' + logo.svg + '" />' +
                                     '<div class="svg-btn-group d-flex">' + 
-                                        '<button class="btn btn-icon btn-primary-transparent rounded-pill btn-wave me-2 btn-favorite" onclick="toggleFavorite(this, ' + index + ');"><i class="ri-heart-line"></i></button>' +
-                                        '<a href="/logo/edit/' + index + '" class="btn btn-icon btn-secondary-transparent rounded-pill btn-wave"><i class="ri-edit-line"></i></a>' +
+                                        '<button class="btn btn-icon btn-primary-transparent rounded-pill btn-wave me-2 btn-favorite" onclick="toggleFavorite(this, ' + logo.id + ');"><i class="ri-heart-line"></i></button>' +
+                                        '<a href="/logos/' + logo.id + '/edit" class="btn btn-icon btn-secondary-transparent rounded-pill btn-wave"><i class="ri-edit-line"></i></a>' +
                                     '</div>' + 
                                 '</div>';
                         })
@@ -89,7 +91,7 @@
                         $('#logos-wrapper .skeleton').remove();
                         $('#logos-wrapper').append(html);
 
-                        count += svgs.length;
+                        count += logos.length;
                         total = res.total;
                     }
 
@@ -102,14 +104,23 @@
             var parent = $(e).closest('.svg-wrapper');
             if (parent.hasClass('favorite')) {
                 parent.removeClass('favorite');
-                favorites.pop(i);
+                favorites = favorites.filter(item => item !== i);
             }
             else {
                 parent.addClass('favorite');
                 favorites.push(i);
+                favorites = [...new Set(favorites)];
             }
+
+            $.post("{{ route('logos.favorites') }}", JSON.stringify({
+                favorites: favorites,
+                _token: $('meta[name="csrf-token"]').attr('content')
+            }), function(response) {
+                // Handle the response from the server
+                console.log('Response:', response);
+            }, 'json');
         }
 
-        fetchSVGs();
+        fetchLogos();
     </script>
 @endsection
