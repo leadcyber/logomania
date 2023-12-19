@@ -140,14 +140,14 @@ class LogoController extends Controller
         $sort = $request->get('sort', '');
 
         $logos = session('logos', null);
+        if ($sort == 'favorite') {
+            $logos = array_filter($logos, function ($item) {
+                return isset($item['favorite']) && $item['favorite'];
+            });
+        }
         $totalItems = count($logos);
         $favorites = [];
         if ($logos) {
-            if ($sort == 'favorite') {
-                usort($logos, function ($a, $b) {
-                    return $b['favorite'] - $a['favorite'];
-                });
-            }
             foreach ($logos as $index => &$logo) {
                 if (isset($logo['favorite']) && $logo['favorite']) $favorites[] = $logo['id'];
             }

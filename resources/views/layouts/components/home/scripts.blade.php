@@ -22,6 +22,9 @@
 <!-- NODE WAVES JS -->
 <script src="{{ asset('build/assets/libs/node-waves/waves.min.js') }}"></script>
 
+<!-- SIMPLEBAR JS -->
+<script src="{{ asset('build/assets/libs/simplebar/simplebar.min.js') }}"></script>
+
 <!-- DEFAULTMENU JS -->
 @vite('resources/assets/js/defaultmenu.js')
 
